@@ -1,0 +1,29 @@
+name: Entrenar agente
+
+on:
+  schedule:
+    - cron: "17 3 * * 6"     # cada sábado ~03:17 UTC (re-entrena con datos nuevos)
+  workflow_dispatch:          # botón "Run workflow" para correrlo a mano
+
+permissions:
+  contents: write
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m agent.train
+      - name: Guardar modelo y resultados
+        run: |
+          git config user.name "agente-bot"
+          git config user.email "agente-bot@users.noreply.github.com"
+          git add models/model.joblib docs/data/
+          git diff --cached --quiet || git commit -m "Re-entrenamiento semanal del agente"
+          git pull --rebase
+          git push

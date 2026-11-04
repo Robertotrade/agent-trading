@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente de Day Trading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f3ef; --surface: #fcfcfb; --line: #e2e0d8; --grid: #ecebe5;
+  --text: #0b0b0b; --text-2: #52514e; --muted: #85837c;
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a;
+  --good: #008300; --bad: #d03b3b; --warn-bg: #fff4d6; --warn-line: #e8c35a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111110; --surface: #1a1a19; --line: #2e2d2a; --grid: #262624;
+    --text: #f0efec; --text-2: #c3c2b7; --muted: #8f8d85;
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
+    --good: #3fb24f; --bad: #e66767; --warn-bg: #2b2412; --warn-line: #7a6426;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111110; --surface: #1a1a19; --line: #2e2d2a; --grid: #262624;
+  --text: #f0efec; --text-2: #c3c2b7; --muted: #8f8d85;
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
+  --good: #3fb24f; --bad: #e66767; --warn-bg: #2b2412; --warn-line: #7a6426;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.5 "IBM Plex Sans", system-ui, sans-serif; }
+a { color: var(--series-1); }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 28px 16px 60px; }
+.mono, td.num, .kpi .v { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; }
+h1 { font-size: 26px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+h2 { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+h3 { font-size: 13px; font-weight: 600; margin: 18px 0 4px; color: var(--text-2); }
+.sub { color: var(--text-2); font-size: 13px; }
+.navlink { font-size: 13px; }
+.note { color: var(--muted); font-size: 12.5px; margin: 0 0 12px; }
+.badge { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
+  border: 1px solid var(--line); background: var(--surface); margin-right: 6px; }
+.warn { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 10px;
+  padding: 10px 14px; font-size: 13px; margin-bottom: 20px; }
+.grid { display: grid; gap: 14px; }
+.kpis { grid-template-columns: repeat(4, 1fr); margin: 14px 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
+.kpi .l { color: var(--text-2); font-size: 12px; }
+.kpi .v { font-size: 24px; font-weight: 500; margin-top: 2px; }
+.kpi .n { color: var(--muted); font-size: 12px; }
+.two { grid-template-columns: 1fr 1fr; margin-top: 14px; align-items: start; }
+.pos { color: var(--good); } .neg { color: var(--bad); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-weight: 500; color: var(--text-2); border-bottom: 1px solid var(--line); padding: 6px 8px; }
+td { border-bottom: 1px solid var(--grid); padding: 7px 8px; }
+td.num, th.num { text-align: right; }
+.tablebox { overflow-x: auto; }
+.tag { font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 4px; border: 1px solid var(--line); color: var(--text-2); white-space: nowrap; }
+.tag.buy { color: var(--series-1); border-color: var(--series-1); }
+.tag.short { color: var(--series-2); border-color: var(--series-2); }
+.tag.take { color: var(--good); border-color: var(--good); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--text-2); margin-bottom: 6px; }
+.legend span::before { content: ""; display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 6px; background: var(--c); }
+.chartbox { position: relative; }
+.chartbox svg { display: block; width: 100%; height: 280px; overflow: visible; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.12); display: none; white-space: nowrap; }
+.empty { color: var(--muted); font-size: 13px; padding: 8px 0; }
+.muted { color: var(--muted); }
+.nw { white-space: nowrap; }
+.only-m { display: none; font-size: 12px; margin-top: 3px; }
+details summary { cursor: pointer; color: var(--text-2); font-size: 13px; margin-top: 10px; }
+ul.rules { margin: 6px 0 0; padding-left: 18px; font-size: 13px; color: var(--text-2); }
+@media (max-width: 760px) {
+  .hide-m { display: none; }
+  .only-m { display: block; }
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .two { grid-template-columns: 1fr; }
+  .kpi .v { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Agente de Day Trading</h1>
+      <div class="sub" id="updated">Cargando…</div>
+      <a class="navlink" href="index.html">← Agente semanal</a>
+    </div>
+    <div id="badges"></div>
+  </header>
+
+  <div class="warn" id="warn">
+    Solo simulación: no manda órdenes. Aquí ves qué acciones vigilar, dónde entraría el agente
+    y cómo le habría ido en días que <strong>no vio</strong> al entrenar, con comisiones.
+  </div>
+
+  <section class="card">
+    <h2 id="plan-title">Qué comprar y cuándo</h2>
+    <p class="note" id="plan-note">&nbsp;</p>
+    <div class="tablebox" id="plan"></div>
+  </section>
+
+  <section class="card" style="margin-top:14px">
+    <h2>Historial en vivo (público)</h2>
+    <p class="note" id="vivo-note">&nbsp;</p>
+    <div class="grid kpis" id="vivo-kpis" hidden style="margin-top:0">
+      <div class="card kpi"><div class="l">El agente en vivo</div><div class="v" id="v-ret">—</div><div class="n" id="v-ret-n">&nbsp;</div></div>
+      <div class="card kpi"><div class="l">Operaciones</div><div class="v" id="v-ops">—</div><div class="n" id="v-ops-n">&nbsp;</div></div>
+      <div class="card kpi"><div class="l">Promedio por operación</div><div class="v" id="v-avg">—</div><div class="n">después de comisiones</div></div>
+      <div class="card kpi"><div class="l">Días anotados</div><div class="v" id="v-dias">—</div><div class="n" id="v-dias-n">&nbsp;</div></div>
+    </div>
+    <div class="legend" id="vivo-legend"></div>
+    <div id="vivo-chart" class="chartbox"><div class="tip" id="vivo-tip"></div></div>
+    <div class="tablebox" id="vivo-dias"></div>
+  </section>
+
+  <section class="grid kpis">
+    <div class="card kpi"><div class="l">El agente en días de examen</div><div class="v" id="k-ret">—</div><div class="n" id="k-ret-n">&nbsp;</div></div>
+    <div class="card kpi"><div class="l">Operaciones del agente</div><div class="v" id="k-ops">—</div><div class="n" id="k-ops-n">&nbsp;</div></div>
+    <div class="card kpi"><div class="l">Promedio por operación</div><div class="v" id="k-avg">—</div><div class="n" id="k-avg-n">&nbsp;</div></div>
+    <div class="card kpi"><div class="l">Precisión del agente (AUC)</div><div class="v" id="k-auc">—</div><div class="n">0.50 = azar · días que no vio</div></div>
+  </section>
+
+  <section class="card">
+    <h2>Día por día: crecimiento de $1</h2>
+    <p class="note">Solo los días que el agente no vio al entrenar. «Regla» es tomar todas las rupturas de las acciones más en juego, sin que el agente lea las velas: si el agente no le gana, leer las velas no está ayudando.</p>
+    <div class="legend" id="legend"></div>
+    <div id="chart" class="chartbox"><div class="tip" id="tip"></div></div>
+    <h3>Comparación</h3>
+    <div class="tablebox" id="compare"></div>
+    <details><summary>Reglas que sigue</summary><ul class="rules" id="rules"></ul></details>
+  </section>
+
+  <section class="grid two">
+    <div class="card">
+      <h2>Últimas operaciones del agente (simuladas)</h2>
+      <p class="note">Hora de Nueva York. Resultado después de comisiones.</p>
+      <div class="tablebox" id="ops"></div>
+    </div>
+    <div class="card">
+      <h2>¿Sirven las velas de los libros?</h2>
+      <p class="note" id="velas-note">&nbsp;</p>
+      <div class="tablebox" id="velas"></div>
+      <h3>Exámenes</h3>
+      <div class="tablebox" id="folds"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const pct = (x, d = 1) => x == null ? "—" : (x >= 0 ? "+" : "") + (x * 100).toFixed(d) + "%";
+const pctAbs = (x, d = 1) => x == null ? "—" : (x * 100).toFixed(d) + "%";
+const bps = (x, d = 1) => x == null ? "—" : (x >= 0 ? "+" : "") + x.toFixed(d) + " pb";
+const cls = x => x > 0 ? "pos" : x < 0 ? "neg" : "";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function table(el, head, rows, empty) {
+  if (!rows.length) { el.innerHTML = `<div class="empty">${empty}</div>`; return; }
+  el.innerHTML = `<table><thead><tr>${head.map(h => `<th class="${h[1] || ""}">${h[0]}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(r => `<tr>${r.map((c, i) => `<td class="${head[i][1] || ""}">${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+function loadScript(src) {
+  return new Promise(res => {
+    const s = document.createElement("script");
+    s.src = src; s.onload = () => res(true); s.onerror = () => res(false);
+    document.head.appendChild(s);
+  });
+}
+async function getJSON(name) {
+  try { const r = await fetch("data/" + name + "?t=" + Date.now()); return r.ok ? r.json() : null; }
+  catch { return null; }
+}
+async function loadData() {
+  if ((await loadScript("data/data.js?t=" + Date.now()) || await loadScript("data/data.js")) && window.AGENTE)
+    return window.AGENTE;
+  const [daytrading, historial_dt] = await Promise.all([getJSON("daytrading.json"), getJSON("historial_dt.json")]);
+  return { daytrading, historial_dt };
+}
+
+function historialEnVivo(Hh) {
+  const dias = Hh?.dias || [];
+  if (!dias.length) {
+    $("vivo-note").textContent = "Todavía no hay días anotados. Cuando el agente corra solo en GitHub, cada tarde anota el día con el modelo que se guardó antes de que abriera la bolsa. Así nadie puede cambiar los resultados después: esta es la prueba de verdad, no el examen de abajo.";
+    return;
+  }
+  const Rz = Hh.resumen, A = Rz.agente, G = Rz.regla, Sp = Rz.spy;
+  $("vivo-note").textContent = `Desde el ${Hh.empezo}. Cada día se evalúa con el modelo que ya estaba guardado antes de que abriera la bolsa, y queda anotado en el historial público de GitHub: no se puede editar. Esta es la prueba de verdad.`;
+  $("vivo-kpis").hidden = false;
+  $("v-ret").textContent = pct(A.retorno_total, 2); $("v-ret").className = "v " + cls(A.retorno_total);
+  $("v-ret-n").textContent = `regla ${pct(G.retorno_total, 2)} · SPY ${pct(Sp.retorno_total, 2)}`;
+  $("v-ops").textContent = A.operaciones;
+  $("v-ops-n").textContent = A.operaciones ? `${pctAbs(A.ganadoras, 0)} ganadoras` : "todavía ninguna";
+  $("v-avg").textContent = A.promedio_bps == null ? "—" : bps(A.promedio_bps); $("v-avg").className = "v " + cls(A.promedio_bps);
+  $("v-dias").textContent = Rz.dias; $("v-dias-n").textContent = `último: ${dias[dias.length - 1].dia}`;
+  if (dias.length >= 2) {
+    const desde1 = v => [1, ...v];                       // todas empiezan en $1
+    const fechas = ["inicio", ...Rz.fechas];
+    const series = [{ name: "Agente", c: "var(--series-1)", v: desde1(A.curva) }, { name: "SPY", long: "Mercado (SPY)", c: "var(--series-2)", v: desde1(Sp.curva) },
+                    { name: "Regla", long: "Regla sin agente", c: "var(--series-3)", v: desde1(G.curva) }];
+    const ids = { box: "vivo-chart", tip: "vivo-tip", legend: "vivo-legend" };
+    drawChart(series, fechas, ids);
+    addEventListener("resize", () => drawChart(series, fechas, ids));
+  }
+  table($("vivo-dias"), [["Día"], ["Operaciones", "num"], ["Agente", "num"], ["Regla", "num hide-m"], ["SPY", "num"]],
+    dias.slice(-10).reverse().map(d => [`<span class="mono">${esc(d.dia)}</span>`, d.agente.operaciones.length,
+      `<span class="${cls(d.agente.resultado_dia)}">${pct(d.agente.resultado_dia, 2)}</span>`,
+      `<span class="${cls(d.regla.resultado_dia)}">${pct(d.regla.resultado_dia, 2)}</span>`,
+      `<span class="${cls(d.spy)}">${pct(d.spy, 2)}</span>`]), "");
+}
+
+function drawChart(series, dates, ids = { box: "chart", tip: "tip", legend: "legend" }) {
+  const box = $(ids.box), tip = $(ids.tip);
+  $(ids.legend).innerHTML = series.map(s => `<span style="--c:${s.c}">${esc(s.long || s.name)}</span>`).join("");
+  const n = dates.length;
+  const W = box.clientWidth || 800, H = 280, m = { t: 10, r: 92, b: 26, l: 48 };
+  const all = series.flatMap(s => s.v);
+  const lo = Math.min(...all), hi = Math.max(...all);
+  const x = i => m.l + (n > 1 ? i / (n - 1) : 0.5) * (W - m.l - m.r);
+  const y = v => m.t + (1 - (v - lo) / (hi - lo || 1)) * (H - m.t - m.b);
+  const yt = [...Array(5)].map((_, i) => lo + (hi - lo) * i / 4);
+  const every = Math.max(1, Math.ceil(n / Math.max(2, Math.floor((W - 120) / 56))));
+  const path = v => v.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p).toFixed(1)).join("");
+  const ends = series.map(s => ({ s, y: y(s.v[n - 1]) })).sort((a, b) => a.y - b.y);
+  for (let k = 1; k < ends.length; k++) if (ends[k].y - ends[k - 1].y < 14) ends[k].y = ends[k - 1].y + 14;
+  box.querySelector("svg")?.remove();
+  box.insertAdjacentHTML("afterbegin", `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Crecimiento de $1 por día: agente, regla y mercado">
+    ${yt.map(v => `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/>
+      <text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">$${v.toFixed(3)}</text>`).join("")}
+    ${dates.map((d, i) => i % every === 0 ? `<text x="${x(i)}" y="${H - 6}" font-size="11" fill="var(--muted)" text-anchor="middle">${/^\d{4}-/.test(d) ? d.slice(5) : d}</text>` : "").join("")}
+    ${series.map(s => `<path d="${path(s.v)}" fill="none" stroke="${s.c}" stroke-width="2" stroke-linejoin="round"/>`).join("")}
+    ${series.map(s => s.v.map((v, i) => `<circle cx="${x(i)}" cy="${y(v)}" r="2.5" fill="${s.c}"/>`).join("")).join("")}
+    ${ends.map(e => `<text x="${W - m.r + 8}" y="${e.y + 4}" font-size="11" fill="var(--text-2)">${esc(e.s.name)}</text>`).join("")}
+    <line id="xh" y1="${m.t}" y2="${H - m.b}" stroke="var(--muted)" stroke-dasharray="3 3" visibility="hidden"/>
+    <rect x="${m.l - 10}" y="0" width="${W - m.l - m.r + 20}" height="${H}" fill="transparent" id="hit"/>
+  </svg>`);
+  const svg = box.querySelector("svg");
+  svg.querySelector("#hit").addEventListener("pointermove", e => {
+    const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * (W / r.width);
+    const i = Math.max(0, Math.min(n - 1, Math.round((px - m.l) / (W - m.l - m.r) * (n - 1))));
+    const xh = svg.querySelector("#xh"); xh.setAttribute("x1", x(i)); xh.setAttribute("x2", x(i)); xh.setAttribute("visibility", "visible");
+    tip.innerHTML = `<div class="mono" style="color:var(--text-2)">${dates[i]}</div>` +
+      series.map(s => `<div><span style="color:${s.c}">●</span> ${esc(s.long || s.name)} <span class="mono">$${s.v[i].toFixed(4)}</span></div>`).join("");
+    tip.style.display = "block";
+    tip.style.left = Math.max(4, Math.min(x(i) * r.width / W + 12, r.width - tip.offsetWidth - 4)) + "px";
+    tip.style.top = "8px";
+  });
+  svg.querySelector("#hit").addEventListener("pointerleave", () => { tip.style.display = "none"; svg.querySelector("#xh").setAttribute("visibility", "hidden"); });
+}
+
+(async () => {
+  const ALL = await loadData();
+  const D = ALL?.daytrading;
+  historialEnVivo(ALL?.historial_dt);
+  if (!D || D.version !== 2) {
+    $("updated").textContent = "Abre Iniciar.command y elige la opción 3 para entrenar al agente de day trading.";
+    $("plan").innerHTML = `<div class="empty">Todavía no hay plan: hace falta entrenar al agente nuevo.</div>`;
+    return;
+  }
+  const E = D.estrategias, A = E.agente, Rg = E.regla, S = D.spy, R = D.reglas, P = D.plan;
+  $("updated").textContent = `Velas de 5 minutos · ${D.universo} acciones · ${D.dias_datos} días (${D.desde} → ${D.hasta}) · entrenado ${D.entrenado}`;
+  $("badges").innerHTML = (D.datos_demo ? `<span class="badge">Datos de prueba</span>` : "") + `<span class="badge">Solo simulación</span>`;
+  if (D.datos_demo) $("warn").insertAdjacentHTML("beforeend", " <strong>Ahora mismo muestra velas sintéticas de prueba, no precios reales.</strong>");
+  else $("warn").insertAdjacentHTML("beforeend", ` Con ${D.dias_datos} días de velas todavía es poca historia: tómalo como una pista, no como prueba.`);
+
+  // --- Plan: qué comprar y cuándo
+  $("plan-title").textContent = `Qué comprar y cuándo · ${P.dia}` + (P.es_hoy ? " (hoy)" : "");
+  const cuando = "corre la opción 3 después de las 9:36 de Nueva York (8:36 am en México). ";
+  $("plan-note").textContent = (P.es_hoy && !P.completo ? "Plan de hoy, en vivo. "
+      : P.es_hoy ? "Así quedó el plan de hoy (la bolsa ya cerró). Para el de mañana, " + cuando
+      : "Este es el último día con velas. Para el plan de hoy, " + cuando) +
+    "«En juego» = cuántas veces más volumen trajo que lo normal en sus primeros 5 minutos. Si la primera vela fue verde, compra cuando el precio rompa su máximo; si fue roja, vende en corto cuando rompa su mínimo. El agente lee las velas y decide si vale la pena.";
+  table($("plan"), [["Acción"], ["En juego", "num hide-m"], ["Qué hacer"], ["Entrar si rompe", "num hide-m"], ["Stop", "num hide-m"], ["El agente"], ["Qué pasó", "hide-m"]],
+    (P.filas || []).map(f => {
+      const k = f.lado === "COMPRA" ? "buy" : "short";
+      return [`<span class="mono">${esc(f.ticker)}</span><div class="only-m muted mono">${f.en_juego.toFixed(1)}x vol.</div>`,
+        `<span class="mono">${f.en_juego.toFixed(1)}x</span>`,
+        `<span class="tag ${k}">${f.lado === "COMPRA" ? "COMPRAR" : "VENDER EN CORTO"}</span><div class="only-m mono">si rompe ${f.entrar_en} · stop ${f.stop}</div>`,
+        `<span class="mono">${f.entrar_en}</span>`, `<span class="mono">${f.stop}</span>`,
+        `<span class="tag ${f.decision === "ENTRAR" ? "take" : ""}">${f.decision}</span><div class="muted mono">espera ${bps(f.espera_bps, 0)}</div>`,
+        `<span class="muted">${esc(f.estado)}</span>`];
+    }), "No hubo acciones en juego ese día.");
+
+  // --- KPIs del agente
+  $("k-ret").textContent = pct(A.retorno_total, 2); $("k-ret").className = "v " + cls(A.retorno_total);
+  $("k-ret-n").textContent = `${A.dias} días · regla ${pct(Rg.retorno_total, 2)} · SPY ${pct(S.retorno_total, 2)}`;
+  $("k-ops").textContent = A.operaciones.toLocaleString("es-MX");
+  $("k-ops-n").textContent = A.operaciones ? `${A.por_dia} por día · ${pctAbs(A.ganadoras, 0)} ganadoras` : "No tomó ninguna";
+  $("k-avg").textContent = A.operaciones ? bps(A.promedio_bps) : "—"; $("k-avg").className = "v " + cls(A.promedio_bps);
+  $("k-avg-n").textContent = A.operaciones ? `${bps(A.promedio_bruto_bps)} antes de comisiones (1 pb = 0.01%)` : "";
+  $("k-auc").textContent = D.auc_promedio.toFixed(3);
+
+  // --- Gráfica y comparación
+  const C = D.curva;
+  const series = [{ name: "Agente", c: "var(--series-1)", v: C.agente },
+                  { name: "SPY", long: "Mercado (SPY)", c: "var(--series-2)", v: C.spy },
+                  { name: "Regla", long: `Regla: todas las rupturas de las ${R.en_juego_top} más en juego`, c: "var(--series-3)", v: C.regla }];
+  drawChart(series, C.fechas);
+  addEventListener("resize", () => drawChart(series, C.fechas));
+  const fila = (nombre, x) => [nombre, x.operaciones, x.operaciones ? pctAbs(x.ganadoras, 0) : "—",
+    x.operaciones ? `<span class="${cls(x.promedio_bps)}">${bps(x.promedio_bps)}</span>` : "—",
+    `<span class="${cls(x.retorno_total)}">${pct(x.retorno_total, 2)}</span>`];
+  table($("compare"), [["Estrategia"], ["Operaciones", "num"], ["Ganadoras", "num hide-m"], ["Promedio", "num"], ["Resultado", "num"]], [
+    fila("Agente (lee las velas)", A), fila(`Regla: ${R.en_juego_top} más en juego`, Rg), fila("Cualquier ruptura", E.todas),
+    ["Mercado (SPY)", "—", "—", "—", `<span class="${cls(S.retorno_total)}">${pct(S.retorno_total, 2)}</span>`]], "");
+  $("rules").innerHTML = [
+    `Cada mañana ordena las acciones por volumen de sus primeros 5 minutos contra lo normal y se fija en las ${R.en_juego_top} más en juego.`,
+    `Si la primera vela fue verde, entra en compra cuando el precio rompe su máximo; si fue roja, en venta en corto cuando rompe su mínimo.`,
+    `El agente solo toma la ruptura si espera ganar ${R.umbral_agente_bps} pb o más, ya con comisiones, según las velas y la gráfica justo antes.`,
+    `Stop a ${Math.round(R.stop_atr * 100)}% del rango diario promedio (ATR). Si no lo toca, sale al cierre. No entra después de las ${R.ultima_entrada} (Nueva York).`,
+    `Máximo ${R.max_operaciones_dia} operaciones al día, cada una con 1/${R.max_operaciones_dia} del capital. Costo: ${R.costo_bps_por_lado} pb por lado más medio centavo por acción.`,
+  ].map(t => `<li>${esc(t)}</li>`).join("");
+
+  // --- Operaciones
+  table($("ops"), [["Día y hora"], ["Acción"], ["Lado"], ["Entrada → salida", "num hide-m"], ["Resultado", "num"]],
+    (D.operaciones || []).slice(0, 20).map(o => [`<span class="mono nw">${esc(o.dia.slice(5))} ${esc(o.hora)}</span>`,
+      `<span class="mono">${esc(o.ticker)}</span>`,
+      `<span class="tag ${o.lado === "COMPRA" ? "buy" : "short"}">${o.lado}</span>`,
+      `<span class="mono">${o.entrada} → ${o.salida}</span>`,
+      `<span class="${cls(o.resultado)}">${pct(o.resultado, 2)}</span>${o.motivo === "stop" ? " <span class='tag'>stop</span>" : ""}`]),
+    "El agente no tomó operaciones en los días de examen.");
+
+  // --- Velas de los libros y exámenes
+  const B = D.velas_base;
+  $("velas-note").textContent = `Qué pasó ${D.horizonte_min} minutos después de cada patrón. Normalmente la acción sube el ${pctAbs(B.sube_pct)} de las veces: un patrón sirve si cambia eso de forma clara.`;
+  table($("velas"), [["Patrón"], ["Los libros dicen"], ["Veces", "num hide-m"], ["Subió después", "num"], ["¿Sirve?"]],
+    D.velas_patrones.map(p => [esc(p.patron), esc(p.libros), p.veces.toLocaleString("es-MX"), pctAbs(p.sube_pct),
+      `<span class="${p.veredicto.startsWith("sí") ? "pos" : p.veredicto.startsWith("pasa") ? "neg" : ""}">${esc(p.veredicto)}</span>`]), "Sin datos.");
+  table($("folds"), [["Días de examen"], ["Rupturas", "num"], ["AUC", "num"]],
+    D.examenes.map(f => [`<span class="mono">${f.desde.slice(5)} → ${f.hasta.slice(5)}</span> (${f.dias})`, f.rupturas,
+      `<span class="mono">${f.auc.toFixed(3)}</span>`]), "");
+})();
+</script>
+</body>
+</html>

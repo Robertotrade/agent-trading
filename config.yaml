@@ -1,0 +1,65 @@
+# ============================================================
+#  Configuración del agente de trading
+#  Cambia aquí las acciones, el riesgo y el modelo.
+# ============================================================
+
+# Acciones entre las que escoge el agente: 100 empresas grandes de EE. UU.
+# Puedes quitar o agregar tickers (como aparecen en Yahoo Finance).
+sectores:
+  tecnologia_y_comunicaciones: [AAPL, MSFT, NVDA, AMZN, GOOGL, META, AVGO, ORCL, ADBE, CRM,
+                                CSCO, INTC, AMD, QCOM, TXN, IBM, INTU, NOW, AMAT, MU, LRCX,
+                                NFLX, TMUS, T, VZ, DIS, CMCSA]
+  consumo: [TSLA, HD, LOW, MCD, SBUX, NKE, TGT, WMT, COST, PG, KO, PEP, MDLZ, CL, PM, MO, BKNG]
+  finanzas: [BRK-B, JPM, BAC, WFC, C, GS, MS, SCHW, BLK, AXP, V, MA, SPGI, USB, PYPL, MET]
+  salud: [UNH, JNJ, LLY, MRK, ABBV, PFE, BMY, AMGN, GILD, TMO, DHR, ABT, MDT, ISRG, CVS, CI,
+          ELV, VRTX]
+  industria: [CAT, DE, HON, GE, RTX, LMT, BA, UNP, UPS, FDX, MMM, ADP]
+  energia_servicios_y_otros: [XOM, CVX, COP, EOG, SLB, NEE, DUK, SO, LIN, AMT]
+
+benchmark: SPY            # "el mercado": el S&P 500
+
+data:
+  start: "2012-01-01"     # desde cuándo bajar históricos para entrenar
+
+model:
+  horizon_days: 5         # predice si cada acción le gana al mercado en los próximos N días
+  n_splits: 6             # cortes de validación walk-forward
+  learning_rate: 0.05
+  max_iter: 300
+  max_depth: 4
+
+strategy:
+  top_n: 10               # compra las 10 con más probabilidad de ganarle al mercado
+  rebalance_days: 5       # cambia la cartera cada 5 días de bolsa (una vez por semana)
+  cost_bps: 5             # costo estimado por operación (0.05%)
+
+risk:
+  invest_pct: 0.95        # invierte el 95% del capital (10 acciones de 9.5% cada una)
+  stop_loss_pct: 0.10     # vende una acción si cae 10% desde que la compró
+  max_daily_loss_pct: 0.05  # si la cuenta cae 5% en un día: cierra todo y espera una semana
+
+# ------------------------------------------------------------
+#  Agente de DAY TRADING (velas de 5 minutos). Horas de Nueva York.
+# ------------------------------------------------------------
+day_trading:
+  mercado: SPY
+  # Busca acciones "en juego" entre las 100 de arriba + estas, que seguido se mueven fuerte
+  extras_en_juego: [PLTR, COIN, UBER, SHOP, SMCI, ARM, MSTR, HOOD, SOFI, RIVN]
+  en_juego_top: 10          # la regla del estudio: las 10 con más volumen relativo al abrir
+  max_operaciones_dia: 10   # cada operación usa 1/10 del capital
+  umbral_agente_bps: 5      # el agente toma la ruptura si espera ganar 5 pb o más (ya con comisiones)
+  stop_atr: 0.10            # stop a 10% del rango diario promedio (ATR)
+  ultima_entrada: "15:30"   # no entra después de esta hora; todo se cierra al final del día
+  costo_bps_por_lado: 3     # comisiones + deslizamiento por cada compra o venta (0.03%)
+  costo_por_accion: 0.005   # + medio centavo por acción (el "spread"; pesa más en acciones baratas)
+  examenes: 3               # cortes del examen por días
+  # Para la tabla "¿Sirven las velas?"
+  acciones: [SPY, QQQ, AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, AMD, AVGO, NFLX, ORCL,
+             MU, INTC, PLTR, JPM, BAC, XOM, WMT, COST, LLY, UNH, BA, DIS]
+  horizonte_velas: 6        # 6 velas = 30 minutos
+
+broker:
+  # SEGURIDAD: el agente solo opera en cuenta DEMO (paper) de Alpaca.
+  # Para dinero real tendrías que poner esto en true Y la variable
+  # ALPACA_PAPER=false. No lo hagas sin meses de resultados en demo.
+  live_trading_confirmed: false

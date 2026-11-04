@@ -1,0 +1,45 @@
+name: Agente operando
+
+on:
+  schedule:
+    # Horas en UTC. Wall Street abre 13:30 UTC (verano) / 14:30 UTC (invierno).
+    - cron: "7 15 * * 1-5"    # mañana: revisa señales, vende y compra
+    - cron: "37 19 * * 1-5"   # antes del cierre: SOLO stop loss y kill switch
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trading
+  cancel-in-progress: false
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Correr agente (cuenta demo)
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+          ALPACA_PAPER: "true"
+        run: |
+          if [ "${{ github.event.schedule }}" = "37 19 * * 1-5" ]; then
+            python -m agent.trade --solo-riesgo
+          else
+            python -m agent.trade
+          fi
+      - name: Publicar estado en la página
+        run: |
+          git config user.name "agente-bot"
+          git config user.email "agente-bot@users.noreply.github.com"
+          git add docs/data/
+          git diff --cached --quiet || git commit -m "Estado del agente $(date -u +%F' '%H:%M)"
+          git pull --rebase
+          git push

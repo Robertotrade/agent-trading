@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agente de Trading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f4f3ef; --surface: #fcfcfb; --line: #e2e0d8; --grid: #ecebe5;
+  --text: #0b0b0b; --text-2: #52514e; --muted: #85837c;
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a;
+  --good: #008300; --bad: #d03b3b; --warn-bg: #fff4d6; --warn-line: #e8c35a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111110; --surface: #1a1a19; --line: #2e2d2a; --grid: #262624;
+    --text: #f0efec; --text-2: #c3c2b7; --muted: #8f8d85;
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
+    --good: #3fb24f; --bad: #e66767; --warn-bg: #2b2412; --warn-line: #7a6426;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111110; --surface: #1a1a19; --line: #2e2d2a; --grid: #262624;
+  --text: #f0efec; --text-2: #c3c2b7; --muted: #8f8d85;
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70;
+  --good: #3fb24f; --bad: #e66767; --warn-bg: #2b2412; --warn-line: #7a6426;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.5 "IBM Plex Sans", system-ui, sans-serif; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 28px 16px 60px; }
+.mono, td.num, .kpi .v { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 16px; }
+h1 { font-size: 26px; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+h2 { font-size: 15px; font-weight: 600; margin: 0 0 4px; }
+h3 { font-size: 13px; font-weight: 600; margin: 18px 0 4px; color: var(--text-2); }
+.sub { color: var(--text-2); font-size: 13px; }
+.navlink { font-size: 13px; color: var(--series-1); }
+.note { color: var(--muted); font-size: 12.5px; margin: 0 0 12px; }
+.badge { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 12px; font-weight: 600;
+  border: 1px solid var(--line); background: var(--surface); margin-right: 6px; }
+.badge.live { color: var(--bad); border-color: var(--bad); }
+.badge.paper { color: var(--series-1); border-color: var(--series-1); }
+.warn { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 10px;
+  padding: 10px 14px; font-size: 13px; margin-bottom: 20px; }
+.grid { display: grid; gap: 14px; }
+.kpis { grid-template-columns: repeat(4, 1fr); margin-bottom: 14px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
+.kpi .l { color: var(--text-2); font-size: 12px; }
+.kpi .v { font-size: 24px; font-weight: 500; margin-top: 2px; }
+.kpi .n { color: var(--muted); font-size: 12px; }
+.two { grid-template-columns: 1fr 1fr; margin-top: 14px; align-items: start; }
+.pos { color: var(--good); } .neg { color: var(--bad); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; font-weight: 500; color: var(--text-2); border-bottom: 1px solid var(--line); padding: 6px 8px; }
+td { border-bottom: 1px solid var(--grid); padding: 7px 8px; }
+td.num, th.num { text-align: right; }
+.tablebox { overflow-x: auto; }
+.bar { position: relative; height: 8px; background: var(--grid); border-radius: 4px; min-width: 80px; }
+.bar i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; background: var(--muted); }
+.bar i.buy { background: var(--series-1); }
+.bar b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--text-2); }
+.tag { font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 4px; border: 1px solid var(--line); color: var(--text-2); }
+.tag.buy { color: var(--series-1); border-color: var(--series-1); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--text-2); margin-bottom: 6px; }
+.legend span::before { content: ""; display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 6px; background: var(--c); }
+#chart { position: relative; }
+#chart svg { display: block; width: 100%; height: 300px; overflow: visible; }
+.tip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 14px rgba(0,0,0,.12); display: none; white-space: nowrap; }
+.empty { color: var(--muted); font-size: 13px; padding: 8px 0; }
+details summary { cursor: pointer; color: var(--text-2); font-size: 13px; margin-top: 10px; }
+@media (max-width: 760px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .two { grid-template-columns: 1fr; }
+  .kpi .v { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Agente de Trading</h1>
+      <div class="sub" id="updated">Cargando…</div>
+      <a class="navlink" href="daytrading.html">Agente de day trading →</a>
+    </div>
+    <div id="badges"></div>
+  </header>
+
+  <div class="warn" id="warn">
+    Proyecto educativo. Las ganancias del backtest no garantizan resultados futuros y el agente puede perder dinero.
+    Úsalo solo en cuenta demo hasta tener meses de resultados.
+  </div>
+
+  <section class="grid kpis">
+    <div class="card kpi"><div class="l">Capital de la cuenta</div><div class="v" id="k-cap">—</div><div class="n" id="k-cap-n">&nbsp;</div></div>
+    <div class="card kpi"><div class="l">Resultado de hoy</div><div class="v" id="k-day">—</div><div class="n" id="k-day-n">&nbsp;</div></div>
+    <div class="card kpi"><div class="l">Backtest del agente</div><div class="v" id="k-bt">—</div><div class="n" id="k-bt-n">&nbsp;</div></div>
+    <div class="card kpi"><div class="l">Precisión del modelo (AUC)</div><div class="v" id="k-auc">—</div><div class="n">0.50 = azar · fuera de muestra</div></div>
+  </section>
+
+  <section class="card">
+    <h2>Backtest: el agente contra el mercado (crecimiento de $1)</h2>
+    <p class="note" id="chart-note">&nbsp;</p>
+    <div class="legend" id="legend"></div>
+    <div id="chart"><div class="tip" id="tip"></div></div>
+    <details><summary>Ver métricas en tabla</summary>
+      <div class="tablebox" id="metrics"></div>
+      <h3>Año por año</h3>
+      <div class="tablebox" id="years"></div>
+    </details>
+  </section>
+
+  <section class="grid two">
+    <div class="card">
+      <h2>Señales de hoy</h2>
+      <p class="note" id="signals-note">&nbsp;</p>
+      <div class="tablebox" id="signals"></div>
+      <details id="signals-more-box" hidden><summary id="signals-more-label">Ver todas</summary><div class="tablebox" id="signals-more"></div></details>
+    </div>
+    <div class="card">
+      <h2>Posiciones abiertas</h2>
+      <p class="note">En tu cuenta demo de Alpaca.</p>
+      <div class="tablebox" id="positions"></div>
+    </div>
+  </section>
+
+  <section class="grid two">
+    <div class="card">
+      <h2>Últimas operaciones</h2>
+      <p class="note">Las órdenes que mandó a tu cuenta demo.</p>
+      <div class="tablebox" id="trades"></div>
+    </div>
+    <div class="card">
+      <h2>Validación walk-forward</h2>
+      <p class="note">Cada examen usa años que el modelo no vio al entrenar.</p>
+      <div class="tablebox" id="folds"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const pct = (x, d = 1) => x == null ? "—" : (x >= 0 ? "+" : "") + (x * 100).toFixed(d) + "%";
+const pctAbs = (x, d = 0) => x == null ? "—" : (x * 100).toFixed(d) + "%";
+const usd = x => x == null ? "—" : "$" + Number(x).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const cls = x => x > 0 ? "pos" : x < 0 ? "neg" : "";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+async function get(name) {
+  try { const r = await fetch("data/" + name + "?t=" + Date.now()); return r.ok ? r.json() : null; }
+  catch { return null; }
+}
+function table(el, head, rows, empty) {
+  if (!rows.length) { el.innerHTML = `<div class="empty">${empty}</div>`; return; }
+  el.innerHTML = `<table><thead><tr>${head.map(h => `<th class="${h[1] || ""}">${h[0]}</th>`).join("")}</tr></thead>
+    <tbody>${rows.map(r => `<tr>${r.map((c, i) => `<td class="${head[i][1] || ""}">${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+
+function drawChart(series, dates) {
+  const box = $("chart"), tip = $("tip");
+  $("legend").innerHTML = series.map(s => `<span style="--c:${s.c}">${esc(s.long || s.name)}</span>`).join("");
+  const n = dates.length;
+  const W = box.clientWidth || 800, H = 300, m = { t: 10, r: 96, b: 26, l: 44 };
+  const all = series.flatMap(s => s.v);
+  const lo = Math.min(...all), hi = Math.max(...all);
+  const x = i => m.l + (i / (n - 1)) * (W - m.l - m.r);
+  const y = v => m.t + (1 - (v - lo) / (hi - lo || 1)) * (H - m.t - m.b);
+  const ticks = 5, yt = [...Array(ticks)].map((_, i) => lo + (hi - lo) * i / (ticks - 1));
+  const years = []; let prev = "";
+  dates.forEach((d, i) => { const yy = d.slice(0, 4); if (yy !== prev) { years.push([i, yy]); prev = yy; } });
+  const step = Math.ceil(years.length / Math.max(2, Math.floor((W - 100) / 60)));
+  const path = v => v.map((p, i) => (i ? "L" : "M") + x(i).toFixed(1) + "," + y(p).toFixed(1)).join("");
+  // etiquetas al final de cada línea, sin encimarse
+  const ends = series.map(s => ({ s, y: y(s.v[n - 1]) })).sort((a, b) => a.y - b.y);
+  for (let k = 1; k < ends.length; k++) if (ends[k].y - ends[k - 1].y < 14) ends[k].y = ends[k - 1].y + 14;
+  box.querySelector("svg")?.remove();
+  box.insertAdjacentHTML("afterbegin", `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Crecimiento de $1: ${series.map(s => esc(s.long || s.name)).join(", ")}">
+    ${yt.map(v => `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/>
+      <text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">$${v.toFixed(2)}</text>`).join("")}
+    ${years.filter((_, k) => k % step === 0).map(([i, yy]) => `<text x="${x(i)}" y="${H - 6}" font-size="11" fill="var(--muted)" text-anchor="middle">${yy}</text>`).join("")}
+    ${series.map(s => `<path d="${path(s.v)}" fill="none" stroke="${s.c}" stroke-width="2" stroke-linejoin="round"/>`).join("")}
+    ${ends.map(e => `<text x="${W - m.r + 6}" y="${e.y + 4}" font-size="11" fill="var(--text-2)">${esc(e.s.name)}</text>`).join("")}
+    <line id="xh" y1="${m.t}" y2="${H - m.b}" stroke="var(--muted)" stroke-dasharray="3 3" visibility="hidden"/>
+    ${series.map((s, k) => `<circle id="dot${k}" r="4" fill="${s.c}" stroke="var(--surface)" stroke-width="2" visibility="hidden"/>`).join("")}
+    <rect x="${m.l}" y="0" width="${W - m.l - m.r}" height="${H}" fill="transparent" id="hit"/>
+  </svg>`);
+  const svg = box.querySelector("svg");
+  const hide = () => { tip.style.display = "none"; svg.querySelectorAll("#xh,circle").forEach(e => e.setAttribute("visibility", "hidden")); };
+  svg.querySelector("#hit").addEventListener("pointermove", e => {
+    const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) * (W / r.width);
+    const i = Math.max(0, Math.min(n - 1, Math.round((px - m.l) / (W - m.l - m.r) * (n - 1))));
+    const xh = svg.querySelector("#xh"); xh.setAttribute("x1", x(i)); xh.setAttribute("x2", x(i)); xh.setAttribute("visibility", "visible");
+    series.forEach((s, k) => { const d = svg.querySelector("#dot" + k); d.setAttribute("cx", x(i)); d.setAttribute("cy", y(s.v[i])); d.setAttribute("visibility", "visible"); });
+    tip.innerHTML = `<div class="mono" style="color:var(--text-2)">${dates[i]}</div>` +
+      series.map(s => `<div><span style="color:${s.c}">●</span> ${esc(s.long || s.name)} <span class="mono">$${s.v[i].toFixed(3)}</span></div>`).join("");
+    tip.style.display = "block";
+    const left = x(i) * r.width / W;
+    tip.style.left = Math.max(4, Math.min(left + 12, r.width - tip.offsetWidth - 4)) + "px";
+    tip.style.top = "8px";
+  });
+  svg.querySelector("#hit").addEventListener("pointerleave", hide);
+}
+
+function loadScript(src) {
+  return new Promise(res => {
+    const s = document.createElement("script");
+    s.src = src; s.onload = () => res(true); s.onerror = () => res(false);
+    document.head.appendChild(s);
+  });
+}
+// data.js deja abrir la página con doble clic (sin servidor); si no existe, lee los .json
+async function loadData() {
+  if ((await loadScript("data/data.js?t=" + Date.now()) || await loadScript("data/data.js")) && window.AGENTE)
+    return window.AGENTE;
+  const [status, backtest, training, trades] = await Promise.all(
+    ["status.json", "backtest.json", "training.json", "trades.json"].map(get));
+  return { status, backtest, training, trades };
+}
+
+(async () => {
+  const { status, backtest: bt, training, trades } = await loadData();
+  const universo = bt?.universo || status?.senales?.length || 0;
+
+  if (status) {
+    $("updated").textContent = "Última ejecución: " + status.actualizado;
+    const mode = status.modo;
+    const label = { paper: "Cuenta demo (paper)", REAL: "DINERO REAL", demo: "Datos de prueba", sin_broker: "Sin broker conectado" }[mode] || mode;
+    $("badges").innerHTML = `<span class="badge ${mode === "REAL" ? "live" : mode === "paper" ? "paper" : ""}">${label}</span>` +
+      (status.simulacion ? `<span class="badge">Solo señales</span>` : "") +
+      (status.cuenta?.kill_switch ? `<span class="badge live">Freno diario activado</span>` : "");
+    const a = status.cuenta;
+    if (a) {
+      $("k-cap").textContent = usd(a.capital);
+      $("k-cap-n").textContent = "Efectivo " + usd(a.efectivo);
+      $("k-day").textContent = pct(a.pl_dia_pct, 2); $("k-day").className = "v " + cls(a.pl_dia_pct);
+      $("k-day-n").textContent = a.mercado_abierto ? "Mercado abierto" : "Mercado cerrado";
+    } else {
+      $("k-cap-n").textContent = "Conecta Alpaca para verlo";
+    }
+    const topN = status.top_n || 10, sig = status.senales || [];
+    $("signals-note").textContent = `Probabilidad de que cada acción le gane al mercado esta semana. Compra las ${topN} más altas en partes iguales y cambia la cartera una vez por semana.`;
+    const row = s => [
+      `<span class="mono">${esc(s.ticker)}</span>`,
+      `<div class="bar" title="${(s.prob * 100).toFixed(1)}%"><i class="${s.senal === "COMPRA" ? "buy" : ""}" style="width:${s.prob * 100}%"></i><b style="left:50%"></b></div>`,
+      `<span class="mono">${(s.prob * 100).toFixed(1)}%</span>`,
+      `<span class="tag ${s.senal === "COMPRA" ? "buy" : ""}">${s.senal}</span>`];
+    const head = [["Acción"], ["Probabilidad de ganarle al mercado"], ["", "num"], ["Señal"]];
+    const shown = Math.max(15, topN);
+    table($("signals"), head, sig.slice(0, shown).map(row), "Sin señales todavía.");
+    if (sig.length > shown) {
+      $("signals-more-box").hidden = false;
+      $("signals-more-label").textContent = `Ver las otras ${sig.length - shown}`;
+      table($("signals-more"), head, sig.slice(shown).map(row), "");
+    }
+    table($("positions"), [["Acción"], ["Valor", "num"], ["Resultado", "num"]],
+      (status.posiciones || []).map(p => [`<span class="mono">${esc(p.ticker)}</span>`, usd(p.valor),
+        `<span class="${cls(p.pl_pct)}">${pct(p.pl_pct)}</span>`]),
+      status.cuenta ? "Sin posiciones abiertas." : "Conecta tu cuenta demo de Alpaca para ver posiciones.");
+  } else {
+    $("updated").textContent = "Aún no hay datos: abre Iniciar.command para entrenar al agente.";
+  }
+
+  if (bt && training) {
+    const M = bt.metrics, a = M.agente, b = M.benchmark, q = M.iguales;
+    $("k-bt").textContent = pct(a.retorno_total, 0); $("k-bt").className = "v " + cls(a.retorno_total);
+    $("k-bt-n").textContent = "Mercado " + pct(b.retorno_total, 0) + (q ? ` · Las ${universo} ` + pct(q.retorno_total, 0) : "");
+    $("k-auc").textContent = training.auc_promedio.toFixed(3);
+    if (training.datos_demo) $("warn").insertAdjacentHTML("beforeend", " <strong>Ahora mismo muestra datos sintéticos de prueba, no precios reales.</strong>");
+
+    const series = [{ name: "Agente", c: "var(--series-1)", v: bt.equity },
+                    { name: "Mercado (SPY)", c: "var(--series-2)", v: bt.benchmark }];
+    if (bt.iguales) {
+      series.push({ name: `Las ${universo}`, long: `Las ${universo} acciones en partes iguales`, c: "var(--series-3)", v: bt.iguales });
+      $("chart-note").textContent = `La prueba justa es la línea «Las ${universo}»: si el agente no le gana a comprar esas ${universo} acciones en partes iguales, escoger no le está sirviendo.`;
+    }
+    drawChart(series, bt.dates);
+    addEventListener("resize", () => drawChart(series, bt.dates));
+
+    const cols = [["Métrica"], ["Agente", "num"]].concat(q ? [[`Las ${universo}`, "num"]] : [], [["Mercado", "num"]]);
+    const r = (label, f) => [label, f(a)].concat(q ? [f(q)] : [], [f(b)]);
+    table($("metrics"), cols, [
+      r("Retorno total", x => pct(x.retorno_total)),
+      r("Crecimiento por año", x => pct(x.cagr)),
+      r("Peor caída", x => pct(x.max_drawdown)),
+      r("Sharpe (ganancia por cada susto)", x => x.sharpe.toFixed(2)),
+      r("Días ganadores", x => pctAbs(x.dias_ganadores)),
+    ], "");
+    table($("years"), [["Año"], ["Agente", "num"]].concat(q ? [[`Las ${universo}`, "num"]] : [], [["Mercado", "num"]]),
+      (bt.por_anio || []).map(y => [y.anio, `<span class="${cls(y.agente)}">${pct(y.agente)}</span>`]
+        .concat(q ? [`<span class="${cls(y.iguales)}">${pct(y.iguales)}</span>`] : [], [`<span class="${cls(y.benchmark)}">${pct(y.benchmark)}</span>`])),
+      "Vuelve a entrenar al agente para ver esta tabla.");
+    table($("folds"), [["Periodo de prueba"], ["AUC", "num"], ["Aciertos", "num"]],
+      training.folds.map(f => [`<span class="mono">${f.prueba_desde.slice(0, 7)} → ${f.prueba_hasta.slice(0, 7)}</span>`,
+        `<span class="mono">${f.auc.toFixed(3)}</span>`, `<span class="mono">${(f.accuracy * 100).toFixed(1)}%</span>`]), "");
+  } else {
+    $("chart").innerHTML = `<div class="empty">Abre <span class="mono">Iniciar.command</span> (o corre <span class="mono">python -m agent.train</span>) para entrenar al agente y ver su backtest.</div>`;
+  }
+
+  table($("trades"), [["Fecha"], ["Acción"], ["Lado"], ["Motivo"]],
+    (trades || []).slice(0, 15).map(t => [`<span class="mono">${esc(t.fecha.slice(0, 16))}</span>`, `<span class="mono">${esc(t.ticker)}</span>`,
+      `<span class="${t.lado === "COMPRA" ? "" : "neg"}">${esc(t.lado)}</span>${t.simulada ? " <span class='tag'>sim</span>" : ""}`, esc(t.motivo)]),
+    "Todavía no hay operaciones.");
+})();
+</script>
+</body>
+</html>

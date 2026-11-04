@@ -1,0 +1,47 @@
+name: Day trading (historial público)
+
+on:
+  schedule:
+    - cron: "47 14 * * 1-5"   # mañana (~9:47 de Nueva York en invierno): plan del día
+    - cron: "33 21 * * 1-5"   # tarde, con la bolsa ya cerrada: anota el día y re-entrena
+  workflow_dispatch:           # botón "Run workflow": anota y re-entrena
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daytrading
+  cancel-in-progress: false
+
+jobs:
+  correr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Plan del día (con el modelo de anoche, sin re-entrenar)
+        if: github.event.schedule == '47 14 * * 1-5'
+        run: python -m agent.daytrade --solo-plan
+
+      # Primero se anota el día con el modelo que ya estaba guardado ANTES de que abriera la
+      # bolsa; solo después se re-entrena para mañana. Si anotar falla, no se re-entrena.
+      - name: Anotar el día en el historial y re-entrenar para mañana
+        if: github.event.schedule != '47 14 * * 1-5'
+        run: |
+          if [ -f models/daytrade.joblib ]; then python -m agent.historial; fi
+          python -m agent.daytrade
+
+      - name: Publicar
+        run: |
+          git config user.name "agente-bot"
+          git config user.email "agente-bot@users.noreply.github.com"
+          git add docs/data/ models/daytrade.joblib
+          git diff --cached --quiet || git commit -m "Day trading $(date -u +%F' '%H:%M)"
+          git pull --rebase
+          git push
