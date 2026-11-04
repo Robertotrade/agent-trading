@@ -271,7 +271,7 @@ function drawChart(series, dates, ids = { box: "chart", tip: "tip", legend: "leg
 
   // --- Plan: qué comprar y cuándo
   $("plan-title").textContent = `Qué comprar y cuándo · ${P.dia}` + (P.es_hoy ? " (hoy)" : "");
-  const cuando = "corre la opción 3 después de las 9:36 de Nueva York (8:36 am en México). ";
+  const cuando = "en GitHub se actualiza solo como a las 9:47 de Nueva York (8:47 am en México); en tu compu, corre la opción 3 después de las 9:36. ";
   $("plan-note").textContent = (P.es_hoy && !P.completo ? "Plan de hoy, en vivo. "
       : P.es_hoy ? "Así quedó el plan de hoy (la bolsa ya cerró). Para el de mañana, " + cuando
       : "Este es el último día con velas. Para el plan de hoy, " + cuando) +
