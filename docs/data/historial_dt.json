@@ -1,0 +1,152 @@
+{
+ "empezo": "2026-11-05",
+ "dias": [
+  {
+   "dia": "2026-11-05",
+   "anotado": "2026-11-05 22:15 UTC",
+   "modelo_entrenado": "2026-11-04T22:10:05.643828+00:00",
+   "modelo_vio_hasta": "2026-11-04",
+   "agente": {
+    "resultado_dia": 0.007784,
+    "operaciones": [
+     {
+      "ticker": "ARM",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 175.28,
+      "salida": 173.9586,
+      "neto": -0.008196,
+      "motivo": "stop",
+      "espera_bps": 47.9
+     },
+     {
+      "ticker": "AMD",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 440.7,
+      "salida": 402.51,
+      "neto": 0.086035,
+      "motivo": "cierre",
+      "espera_bps": 27.2
+     }
+    ]
+   },
+   "regla": {
+    "resultado_dia": 0.007197,
+    "operaciones": [
+     {
+      "ticker": "ARM",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 175.28,
+      "salida": 173.9586,
+      "neto": -0.008196,
+      "motivo": "stop",
+      "espera_bps": 47.9
+     },
+     {
+      "ticker": "HD",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 362.35,
+      "salida": 361.4469,
+      "neto": -0.00312,
+      "motivo": "stop",
+      "espera_bps": -3.8
+     },
+     {
+      "ticker": "UNP",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 295.172,
+      "salida": 295.8229,
+      "neto": -0.002839,
+      "motivo": "stop",
+      "espera_bps": -16.6
+     },
+     {
+      "ticker": "AMD",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 440.7,
+      "salida": 402.51,
+      "neto": 0.086035,
+      "motivo": "cierre",
+      "espera_bps": 27.2
+     },
+     {
+      "ticker": "USB",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 62.56,
+      "salida": 62.4309,
+      "neto": -0.002823,
+      "motivo": "stop",
+      "espera_bps": -16.9
+     },
+     {
+      "ticker": "CI",
+      "lado": "CORTO",
+      "hora": "09:40",
+      "entrada": 305.89,
+      "salida": 306.6257,
+      "neto": -0.003038,
+      "motivo": "dudoso",
+      "espera_bps": -15.2
+     },
+     {
+      "ticker": "MSFT",
+      "lado": "CORTO",
+      "hora": "09:40",
+      "entrada": 550.3,
+      "salida": 543.7279,
+      "neto": 0.011325,
+      "motivo": "dudoso",
+      "espera_bps": -8.0
+     },
+     {
+      "ticker": "QCOM",
+      "lado": "COMPRA",
+      "hora": "09:45",
+      "entrada": 157.5,
+      "salida": 156.7578,
+      "neto": -0.005376,
+      "motivo": "dudoso",
+      "espera_bps": 4.5
+     }
+    ]
+   },
+   "spy": -0.043822
+  }
+ ],
+ "resumen": {
+  "dias": 1,
+  "fechas": [
+   "2026-11-05"
+  ],
+  "agente": {
+   "retorno_total": 0.00778,
+   "operaciones": 2,
+   "ganadoras": 0.5,
+   "promedio_bps": 389.2,
+   "curva": [
+    1.00778
+   ]
+  },
+  "regla": {
+   "retorno_total": 0.0072,
+   "operaciones": 8,
+   "ganadoras": 0.25,
+   "promedio_bps": 89.96,
+   "curva": [
+    1.0072
+   ]
+  },
+  "spy": {
+   "retorno_total": -0.04382,
+   "curva": [
+    0.95618
+   ]
+  }
+ }
+}
