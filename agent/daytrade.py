@@ -231,13 +231,25 @@ def main() -> None:
            "sharpe": round(float(spy_d.mean() / spy_d.std() * np.sqrt(252)), 2) if spy_d.std() > 0 else 0.0,
            "peor_caida": round(float((eq_spy / eq_spy.cummax() - 1).min()), 4)}
 
+    # El plan del último día lo decide el modelo que YA existía antes de ese día (el mismo que
+    # usa el historial), nunca el que se va a entrenar ahora viendo ese día.
+    previo = None
+    if (MODELS_DIR / "daytrade.joblib").exists():
+        try:
+            pb = joblib.load(MODELS_DIR / "daytrade.joblib")
+            if pb.get("version") == VERSION_DT and str(pb.get("datos_hasta", "9999")) < str(s["dia"].max()):
+                previo = pb["model"]
+        except Exception:  # noqa: BLE001
+            previo = None
+
     print("Entrenando el modelo final con todas las rupturas...")
     final = modelo().fit(base[FEATURES_AP], base["y_bps"])
     MODELS_DIR.mkdir(exist_ok=True)
     joblib.dump({"model": final, "features": FEATURES_AP, "version": VERSION_DT, "demo": args.demo,
                  "datos_hasta": str(base["dia"].max()),
                  "trained_at": datetime.now(timezone.utc).isoformat()}, MODELS_DIR / "daytrade.joblib")
-    plan = plan_del_dia(s, final, dt)
+    plan = plan_del_dia(s, previo if previo is not None else final, dt)
+    plan["modelo"] = "anterior" if previo is not None else "nuevo"
     tabla, tbase = tabla_velas(velas, cfg)
 
     auc = round(float(np.mean([f["auc"] for f in folds])), 4)

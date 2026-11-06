@@ -275,6 +275,7 @@ function drawChart(series, dates, ids = { box: "chart", tip: "tip", legend: "leg
   $("plan-note").textContent = (P.es_hoy && !P.completo ? "Plan de hoy, en vivo. "
       : P.es_hoy ? "Así quedó el plan de hoy (la bolsa ya cerró). Para el de mañana, " + cuando
       : "Este es el último día con velas. Para el plan de hoy, " + cuando) +
+    (P.modelo === "nuevo" && P.completo ? "Ojo: estas decisiones las calculó un modelo que ya había visto este día, así que no cuentan como prueba. " : "") +
     "«En juego» = cuántas veces más volumen trajo que lo normal en sus primeros 5 minutos. Si la primera vela fue verde, compra cuando el precio rompa su máximo; si fue roja, vende en corto cuando rompa su mínimo. El agente lee las velas y decide si vale la pena.";
   table($("plan"), [["Acción"], ["En juego", "num hide-m"], ["Qué hacer"], ["Entrar si rompe", "num hide-m"], ["Stop", "num hide-m"], ["El agente"], ["Qué pasó", "hide-m"]],
     (P.filas || []).map(f => {
