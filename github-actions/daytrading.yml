@@ -16,7 +16,7 @@ concurrency:
 jobs:
   correr:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 150      # la primera vez baja años de velas de Alpaca
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,13 +29,32 @@ jobs:
         if: github.event.schedule == '47 14 * * 1-5'
         run: python -m agent.daytrade --solo-plan
 
+      # Años de velas de Alpaca guardados entre corridas, para no bajarlos cada vez
+      - name: Recuperar velas guardadas
+        if: github.event.schedule != '47 14 * * 1-5'
+        uses: actions/cache/restore@v4
+        with:
+          path: data/alpaca_5m
+          key: alpaca-5m-${{ github.run_id }}
+          restore-keys: alpaca-5m-
+
       # Primero se anota el día con el modelo que ya estaba guardado ANTES de que abriera la
       # bolsa; solo después se re-entrena para mañana. Si anotar falla, no se re-entrena.
       - name: Anotar el día en el historial y re-entrenar para mañana
         if: github.event.schedule != '47 14 * * 1-5'
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
         run: |
           if [ -f models/daytrade.joblib ]; then python -m agent.historial; fi
           python -m agent.daytrade
+
+      - name: Guardar velas para la próxima vez
+        if: always() && github.event.schedule != '47 14 * * 1-5'
+        uses: actions/cache/save@v4
+        with:
+          path: data/alpaca_5m
+          key: alpaca-5m-${{ github.run_id }}
 
       - name: Publicar
         run: |

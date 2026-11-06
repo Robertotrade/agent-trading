@@ -28,7 +28,7 @@ import pandas as pd
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.metrics import roc_auc_score
 
-from . import MODELS_DIR, WEB_DATA_DIR, load_config, write_web_bundle
+from . import MODELS_DIR, WEB_DATA_DIR, alpaca_datos, load_config, load_env, write_web_bundle
 from .apertura import FEATURES_AP, elegir, resultados, setups
 from .velas import (CACHE, NY, PATRONES, cargar_cache, descargar, guardar_cache, leer_velas,
                     velas_demo)
@@ -41,11 +41,23 @@ def universo(cfg: dict) -> list[str]:
     return list(dict.fromkeys(cfg["tickers"] + dt["extras_en_juego"] + dt["acciones"] + [dt["mercado"]]))
 
 
-def obtener_velas(cfg: dict, demo: bool, cache: bool) -> dict[str, pd.DataFrame]:
+def obtener_velas(cfg: dict, demo: bool, cache: bool, fuente: str = "auto") -> dict[str, pd.DataFrame]:
+    """Velas de 5 minutos: años desde Alpaca si hay llaves; si no, 60 días de Yahoo."""
     dt, tickers = cfg["day_trading"], universo(cfg)
     if demo:
         print("Usando velas DEMO sintéticas (no son precios reales).")
         return velas_demo(tickers)
+    if fuente == "auto" and (alpaca_datos.hay_llaves() or (cache and any(alpaca_datos.CARPETA.glob("*.csv.gz")))):
+        if cache:
+            print("Usando los años de velas de Alpaca ya guardados.")
+            velas = alpaca_datos.cargar_todo(tickers)
+        else:
+            print(f"Bajando años de velas de 5 minutos de Alpaca ({len(tickers)} acciones). "
+                  "La primera vez tarda (hasta una hora); después solo baja lo nuevo.")
+            velas = alpaca_datos.actualizar(tickers, desde=dt.get("alpaca_desde", "2016-01-01"))
+        if dt["mercado"] in velas and len(velas) > 10:
+            return velas
+        print("  No pude usar Alpaca (¿llaves correctas?); sigo con los 60 días de Yahoo.")
     if not cache:
         print(f"Bajando velas de 5 minutos de {len(tickers)} acciones (últimos 60 días)...")
         try:
@@ -77,7 +89,7 @@ def examen(s: pd.DataFrame, dt: dict) -> tuple[list[dict], list]:
     """Entrena con días anteriores y se examina en días que no vio. Llena s['espera']."""
     base = entrenables(s)
     dias = sorted(base["dia"].unique())
-    k = dt["examenes"]
+    k = dt["examenes"] if len(dias) < 250 else dt.get("examenes_con_historia", 8)   # con años, más exámenes
     edges = np.linspace(max(len(dias) // 2, 8), len(dias), k + 1, dtype=int)
     s["espera"] = np.nan
     folds, dias_prueba = [], []
@@ -138,6 +150,8 @@ def tabla_velas(velas: dict, cfg: dict) -> tuple[list[dict], dict]:
         if t not in velas:
             continue
         df = velas[t]
+        dias_t = sorted(set(df.index.date))
+        df = df[df.index.date >= dias_t[max(len(dias_t) - 250, 0)]]   # el último año basta
         f = leer_velas(df)[list(PATRONES)]
         o, c = df["Open"].to_numpy(float), df["Close"].to_numpy(float)
         pos = np.arange(len(df))
@@ -201,7 +215,9 @@ def main() -> None:
     cfg = load_config()
     dt = cfg["day_trading"]
 
-    velas = obtener_velas(cfg, demo=args.demo, cache=args.cache)
+    load_env()
+    # el plan de la mañana usa Yahoo (casi en vivo); entrenar y anotar usa años de Alpaca si hay llaves
+    velas = obtener_velas(cfg, demo=args.demo, cache=args.cache, fuente="yahoo" if args.solo_plan else "auto")
     s = setups(velas, dt, dt["mercado"])
     if s.empty:
         raise SystemExit("No encontré oportunidades: hacen falta más días de velas.")

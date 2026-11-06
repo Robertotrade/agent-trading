@@ -134,9 +134,11 @@ Un segundo agente, aparte del semanal. En `Iniciar.command` es la **opción 3**,
 
 - **¿Sirven las velas de los libros?:** la página también muestra qué pasó de verdad
   después de cada patrón clásico (martillo, envolventes, doji...).
-- **Datos:** Yahoo da gratis solo los últimos 60 días de velas de 5 minutos; cada vez que
-  lo entrenas, las nuevas se suman a `data/velas_5m.csv.gz`. Para años de historia hace
-  falta otra fuente (por ejemplo, Alpaca).
+- **Datos:** si hay llaves de Alpaca (`ALPACA_API_KEY` y `ALPACA_SECRET_KEY`, en GitHub
+  Secrets o en tu `.env`), baja **años** de velas de 5 minutos desde 2016 (plan gratis) y
+  las guarda en `data/alpaca_5m/`; la primera vez tarda hasta una hora y después solo baja
+  lo nuevo. Sin llaves, usa los 60 días que Yahoo da gratis. El plan de la mañana siempre
+  usa Yahoo, porque Alpaca gratis no da los últimos 15 minutos.
 - **Simulación honesta:** decide en orden de hora sin ver el futuro, cobra comisiones y
   medio centavo por acción, y si con velas de 5 minutos no se sabe si el stop se tocó
   antes o después de entrar, cuenta mitad y mitad.

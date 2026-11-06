@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 import joblib
 import numpy as np
 
-from . import MODELS_DIR, WEB_DATA_DIR, load_config, write_web_bundle
+from . import MODELS_DIR, WEB_DATA_DIR, load_config, load_env, write_web_bundle
 from .apertura import FEATURES_AP, elegir, setups
 from .daytrade import VERSION_DT, obtener_velas
 
@@ -54,6 +54,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--cache", action="store_true", help="usar las velas ya guardadas")
     args = ap.parse_args()
+    load_env()
     cfg = load_config()
     dt = cfg["day_trading"]
 

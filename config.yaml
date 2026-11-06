@@ -52,7 +52,9 @@ day_trading:
   ultima_entrada: "15:30"   # no entra después de esta hora; todo se cierra al final del día
   costo_bps_por_lado: 3     # comisiones + deslizamiento por cada compra o venta (0.03%)
   costo_por_accion: 0.005   # + medio centavo por acción (el "spread"; pesa más en acciones baratas)
-  examenes: 3               # cortes del examen por días
+  examenes: 3               # cortes del examen por días (con 60 días de Yahoo)
+  examenes_con_historia: 8  # cortes del examen cuando hay años de velas de Alpaca
+  alpaca_desde: "2016-01-01"  # desde cuándo bajar velas de Alpaca (si hay llaves)
   # Para la tabla "¿Sirven las velas?"
   acciones: [SPY, QQQ, AAPL, MSFT, NVDA, AMZN, GOOGL, META, TSLA, AMD, AVGO, NFLX, ORCL,
              MU, INTC, PLTR, JPM, BAC, XOM, WMT, COST, LLY, UNH, BA, DIS]
