@@ -1,5 +1,5 @@
 {
-  "entrenado": "2026-11-04 22:12 UTC",
+  "entrenado": "2026-11-07 04:00 UTC",
   "datos_demo": false,
   "objetivo": "ganarle al mercado (SPY) en 5 días",
   "acciones": [
@@ -104,57 +104,57 @@
     "LIN",
     "AMT"
   ],
-  "filas": 351431,
+  "filas": 351631,
   "horizonte_dias": 5,
-  "auc_promedio": 0.5081,
+  "auc_promedio": 0.5096,
   "folds": [
     {
       "fold": 1,
-      "prueba_desde": "2019-06-05",
-      "prueba_hasta": "2020-08-26",
-      "auc": 0.5061,
-      "accuracy": 0.499,
-      "tasa_base": 0.4908
+      "prueba_desde": "2019-06-06",
+      "prueba_hasta": "2020-08-27",
+      "auc": 0.5091,
+      "accuracy": 0.5022,
+      "tasa_base": 0.4911
     },
     {
       "fold": 2,
-      "prueba_desde": "2020-08-27",
-      "prueba_hasta": "2021-11-18",
-      "auc": 0.4965,
-      "accuracy": 0.4953,
-      "tasa_base": 0.4882
+      "prueba_desde": "2020-08-28",
+      "prueba_hasta": "2021-11-19",
+      "auc": 0.5019,
+      "accuracy": 0.5008,
+      "tasa_base": 0.4884
     },
     {
       "fold": 3,
-      "prueba_desde": "2021-11-19",
-      "prueba_hasta": "2023-02-15",
-      "auc": 0.5009,
-      "accuracy": 0.4956,
-      "tasa_base": 0.5212
+      "prueba_desde": "2021-11-22",
+      "prueba_hasta": "2023-02-16",
+      "auc": 0.5047,
+      "accuracy": 0.4999,
+      "tasa_base": 0.521
     },
     {
       "fold": 4,
-      "prueba_desde": "2023-02-16",
-      "prueba_hasta": "2024-05-13",
-      "auc": 0.5113,
-      "accuracy": 0.5055,
-      "tasa_base": 0.4778
+      "prueba_desde": "2023-02-17",
+      "prueba_hasta": "2024-05-14",
+      "auc": 0.5119,
+      "accuracy": 0.5044,
+      "tasa_base": 0.4775
     },
     {
       "fold": 5,
-      "prueba_desde": "2024-05-14",
-      "prueba_hasta": "2025-08-11",
-      "auc": 0.5265,
-      "accuracy": 0.5162,
-      "tasa_base": 0.4886
+      "prueba_desde": "2024-05-15",
+      "prueba_hasta": "2025-08-12",
+      "auc": 0.5236,
+      "accuracy": 0.515,
+      "tasa_base": 0.4893
     },
     {
       "fold": 6,
-      "prueba_desde": "2025-08-12",
-      "prueba_hasta": "2026-11-04",
-      "auc": 0.5072,
-      "accuracy": 0.5036,
-      "tasa_base": 0.4921
+      "prueba_desde": "2025-08-13",
+      "prueba_hasta": "2026-11-06",
+      "auc": 0.5061,
+      "accuracy": 0.5029,
+      "tasa_base": 0.4932
     }
   ]
 }
