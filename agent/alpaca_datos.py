@@ -8,6 +8,8 @@ Hace falta una cuenta de Alpaca (la demo es gratis) y sus llaves en las variable
 ALPACA_API_KEY y ALPACA_SECRET_KEY (en GitHub van en Settings → Secrets → Actions;
 en tu compu, en el archivo .env). Lo que baja se guarda en data/alpaca_5m/ y la
 siguiente vez solo baja lo que falta.
+
+Uso para solo bajar (sin entrenar):  python -m agent.alpaca_datos
 """
 from __future__ import annotations
 
@@ -124,3 +126,27 @@ def actualizar(tickers: list[str], desde: str = "2016-01-01") -> dict[str, pd.Da
             print(f"  [{n}/{len(tickers)}] {t}: {len(out.get(t, [])):,} velas ({nuevas:,} nuevas) "
                   f"· {int(time.time() - t0)} s")
     return out
+
+
+def main() -> None:
+    from . import load_config, load_env
+    from .daytrade import universo
+
+    load_env()
+    if not hay_llaves():
+        raise SystemExit("No encontré las llaves de Alpaca (ALPACA_API_KEY y ALPACA_SECRET_KEY). "
+                         "Revisa los Secrets del repositorio en GitHub.")
+    cfg = load_config()
+    tickers = universo(cfg)
+    print(f"Bajando años de velas de 5 minutos de Alpaca para {len(tickers)} acciones...")
+    velas = actualizar(tickers, desde=cfg["day_trading"].get("alpaca_desde", "2016-01-01"))
+    total = sum(len(v) for v in velas.values())
+    dias = {d for v in velas.values() for d in v.index.date}
+    print(f"Listo: {len(velas)} acciones, {total:,} velas, {len(dias):,} días de bolsa "
+          f"({min(dias) if dias else '-'} → {max(dias) if dias else '-'}).")
+    if len(velas) < 10:
+        raise SystemExit("Alpaca casi no regresó velas: revisa que las llaves sean de Paper Trading y estén bien copiadas.")
+
+
+if __name__ == "__main__":
+    main()
