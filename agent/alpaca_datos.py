@@ -73,6 +73,12 @@ def _bajar(cliente, simbolo: str, inicio: datetime, fin: datetime) -> pd.DataFra
             barras = cliente.get_stock_bars(req)
             break
         except Exception as e:  # noqa: BLE001
+            texto = str(e).lower()
+            codigo = getattr(e, "status_code", None)
+            if codigo in (401, 403) or any(x in texto for x in ("forbidden", "unauthorized", "not authorized")):
+                # llaves mal puestas o plan sin permiso: no tiene caso reintentar
+                raise SystemExit(f"Alpaca rechazó la consulta ({str(e)[:120]}). Revisa que las llaves "
+                                 "sean de Paper Trading y estén bien copiadas en los Secrets.") from e
             if intento == 5:
                 raise
             espera = 20 * (intento + 1)
