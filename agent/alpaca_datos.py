@@ -26,8 +26,36 @@ from .velas import NY, _horario_normal
 CARPETA = ROOT / "data" / "alpaca_5m"
 
 
+def _llave(nombre: str) -> str:
+    return os.getenv(nombre, "").strip()          # sin espacios ni saltos de línea de más
+
+
 def hay_llaves() -> bool:
-    return bool(os.getenv("ALPACA_API_KEY") and os.getenv("ALPACA_SECRET_KEY"))
+    return bool(_llave("ALPACA_API_KEY") and _llave("ALPACA_SECRET_KEY"))
+
+
+def revisar_llaves() -> list[str]:
+    """Revisa las llaves SIN mostrarlas: largo, tipo y errores comunes al pegarlas."""
+    avisos = []
+    for n in ("ALPACA_API_KEY", "ALPACA_SECRET_KEY"):
+        crudo, v = os.getenv(n, ""), _llave(n)
+        if not v:
+            avisos.append(f"{n} está vacía o no existe.")
+            continue
+        if "ALPACA" in v.upper():
+            avisos.append(f"{n} tiene escrito un nombre (ALPACA...) en vez de la llave.")
+        if any(c.isspace() for c in v) or "=" in v:
+            avisos.append(f"{n} tiene espacios, saltos de línea o '='; pega solo la llave.")
+        if crudo != v:
+            avisos.append(f"{n} tenía espacios al principio o al final (ya los quito solo).")
+    k, sec = _llave("ALPACA_API_KEY"), _llave("ALPACA_SECRET_KEY")
+    tipo = ("demo / paper (empieza con PK)" if k.startswith("PK") else
+            "cuenta real (empieza con AK)" if k.startswith("AK") else "no reconocido")
+    print(f"Llaves: la Key tiene {len(k)} caracteres y es de tipo {tipo}; la Secret tiene {len(sec)} caracteres "
+          f"(normalmente son 20 y unos 40).")
+    for a in avisos:
+        print(f"  ⚠️  {a}")
+    return avisos
 
 
 def _archivo(t: str):
@@ -99,7 +127,7 @@ def actualizar(tickers: list[str], desde: str = "2016-01-01") -> dict[str, pd.Da
     """Baja lo que falte de cada acción (por años) y regresa {ticker: velas en hora de NY}."""
     from alpaca.data.historical import StockHistoricalDataClient
 
-    cliente = StockHistoricalDataClient(os.environ["ALPACA_API_KEY"], os.environ["ALPACA_SECRET_KEY"])
+    cliente = StockHistoricalDataClient(_llave("ALPACA_API_KEY"), _llave("ALPACA_SECRET_KEY"))
     fin = datetime.now(timezone.utc) - timedelta(minutes=20)   # el plan gratis no da los últimos 15 min
     inicio_total = pd.Timestamp(desde, tz="UTC").to_pydatetime()
     out, t0 = {}, time.time()
@@ -142,6 +170,7 @@ def main() -> None:
     if not hay_llaves():
         raise SystemExit("No encontré las llaves de Alpaca (ALPACA_API_KEY y ALPACA_SECRET_KEY). "
                          "Revisa los Secrets del repositorio en GitHub.")
+    revisar_llaves()
     cfg = load_config()
     tickers = universo(cfg)
     print(f"Bajando años de velas de 5 minutos de Alpaca para {len(tickers)} acciones...")

@@ -89,7 +89,7 @@ def compute_signals(cfg: dict, demo: bool) -> pd.DataFrame:
 
 
 def get_client(cfg: dict):
-    key, secret = os.getenv("ALPACA_API_KEY"), os.getenv("ALPACA_SECRET_KEY")
+    key, secret = os.getenv("ALPACA_API_KEY", "").strip(), os.getenv("ALPACA_SECRET_KEY", "").strip()
     if not key or not secret:
         return None, "sin_broker"
     paper = os.getenv("ALPACA_PAPER", "true").lower() != "false"
