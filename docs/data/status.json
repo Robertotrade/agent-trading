@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-06 20:19 UTC",
+  "actualizado": "2026-11-10 20:21 UTC",
   "modo": "sin_broker",
   "simulacion": true,
   "top_n": 10,
@@ -9,702 +9,702 @@
   "senales": [
     {
       "ticker": "MU",
-      "prob": 0.6175,
-      "precio": 690.87,
-      "fecha_datos": "2026-11-06",
-      "senal": "COMPRA"
-    },
-    {
-      "ticker": "GOOGL",
-      "prob": 0.6052,
-      "precio": 286.34,
-      "fecha_datos": "2026-11-06",
-      "senal": "COMPRA"
-    },
-    {
-      "ticker": "AMD",
-      "prob": 0.6044,
-      "precio": 448.855,
-      "fecha_datos": "2026-11-06",
+      "prob": 0.6652,
+      "precio": 716.9687,
+      "fecha_datos": "2026-11-10",
       "senal": "COMPRA"
     },
     {
       "ticker": "ORCL",
-      "prob": 0.6014,
-      "precio": 115.3049,
-      "fecha_datos": "2026-11-06",
+      "prob": 0.6193,
+      "precio": 117.59,
+      "fecha_datos": "2026-11-10",
       "senal": "COMPRA"
     },
     {
-      "ticker": "NOW",
-      "prob": 0.5948,
-      "precio": 102.13,
-      "fecha_datos": "2026-11-06",
+      "ticker": "GOOGL",
+      "prob": 0.6162,
+      "precio": 287.1948,
+      "fecha_datos": "2026-11-10",
       "senal": "COMPRA"
     },
     {
-      "ticker": "CSCO",
-      "prob": 0.5791,
-      "precio": 94.45,
-      "fecha_datos": "2026-11-06",
-      "senal": "COMPRA"
-    },
-    {
-      "ticker": "AVGO",
-      "prob": 0.5777,
-      "precio": 292.98,
-      "fecha_datos": "2026-11-06",
-      "senal": "COMPRA"
-    },
-    {
-      "ticker": "AMAT",
-      "prob": 0.5631,
-      "precio": 332.675,
-      "fecha_datos": "2026-11-06",
-      "senal": "COMPRA"
-    },
-    {
-      "ticker": "CAT",
-      "prob": 0.5623,
-      "precio": 559.22,
-      "fecha_datos": "2026-11-06",
-      "senal": "COMPRA"
-    },
-    {
-      "ticker": "NVDA",
-      "prob": 0.5585,
-      "precio": 188.18,
-      "fecha_datos": "2026-11-06",
+      "ticker": "LRCX",
+      "prob": 0.6125,
+      "precio": 222.55,
+      "fecha_datos": "2026-11-10",
       "senal": "COMPRA"
     },
     {
       "ticker": "CRM",
-      "prob": 0.5511,
-      "precio": 214.015,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
+      "prob": 0.5894,
+      "precio": 211.93,
+      "fecha_datos": "2026-11-10",
+      "senal": "COMPRA"
     },
     {
-      "ticker": "NFLX",
-      "prob": 0.5477,
-      "precio": 63.705,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
+      "ticker": "CAT",
+      "prob": 0.5882,
+      "precio": 582.96,
+      "fecha_datos": "2026-11-10",
+      "senal": "COMPRA"
     },
     {
-      "ticker": "LLY",
-      "prob": 0.5477,
-      "precio": 1360.304,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
+      "ticker": "NOW",
+      "prob": 0.5844,
+      "precio": 98.32,
+      "fecha_datos": "2026-11-10",
+      "senal": "COMPRA"
     },
     {
-      "ticker": "GILD",
-      "prob": 0.5396,
-      "precio": 167.49,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
+      "ticker": "INTC",
+      "prob": 0.5719,
+      "precio": 57.894,
+      "fecha_datos": "2026-11-10",
+      "senal": "COMPRA"
     },
     {
-      "ticker": "TMO",
-      "prob": 0.5356,
-      "precio": 692.77,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
+      "ticker": "AMAT",
+      "prob": 0.5688,
+      "precio": 370.975,
+      "fecha_datos": "2026-11-10",
+      "senal": "COMPRA"
     },
     {
-      "ticker": "LRCX",
-      "prob": 0.5355,
-      "precio": 201.41,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
+      "ticker": "AVGO",
+      "prob": 0.5566,
+      "precio": 331.93,
+      "fecha_datos": "2026-11-10",
+      "senal": "COMPRA"
     },
     {
-      "ticker": "C",
-      "prob": 0.5301,
-      "precio": 119.99,
-      "fecha_datos": "2026-11-06",
+      "ticker": "QCOM",
+      "prob": 0.5564,
+      "precio": 172.89,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
       "ticker": "TXN",
-      "prob": 0.5268,
-      "precio": 278.5098,
-      "fecha_datos": "2026-11-06",
+      "prob": 0.5546,
+      "precio": 299.74,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "VRTX",
-      "prob": 0.5266,
-      "precio": 546.535,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "BA",
-      "prob": 0.5244,
-      "precio": 173.1,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "GS",
-      "prob": 0.5236,
-      "precio": 871.77,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "MRK",
-      "prob": 0.522,
-      "precio": 146.54,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "ELV",
-      "prob": 0.5204,
-      "precio": 428.16,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "MMM",
-      "prob": 0.52,
-      "precio": 186.655,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "CVS",
-      "prob": 0.5199,
-      "precio": 83.9101,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "HD",
-      "prob": 0.5197,
-      "precio": 342.36,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "COP",
-      "prob": 0.5193,
-      "precio": 136.77,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "MDT",
-      "prob": 0.5193,
-      "precio": 101.91,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "MSFT",
-      "prob": 0.5182,
-      "precio": 532.31,
-      "fecha_datos": "2026-11-06",
+      "ticker": "NFLX",
+      "prob": 0.5525,
+      "precio": 62.93,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
       "ticker": "META",
-      "prob": 0.5175,
-      "precio": 616.23,
-      "fecha_datos": "2026-11-06",
+      "prob": 0.5392,
+      "precio": 643.67,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "MS",
-      "prob": 0.5172,
-      "precio": 182.78,
-      "fecha_datos": "2026-11-06",
+      "ticker": "CSCO",
+      "prob": 0.5361,
+      "precio": 98.42,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "ADBE",
-      "prob": 0.5167,
-      "precio": 239.51,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "AAPL",
-      "prob": 0.5164,
-      "precio": 343.785,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "CI",
-      "prob": 0.5158,
-      "precio": 294.915,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "AMZN",
-      "prob": 0.5156,
-      "precio": 261.5,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "ABT",
-      "prob": 0.5149,
-      "precio": 110.24,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "DHR",
-      "prob": 0.5135,
-      "precio": 229.05,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "XOM",
-      "prob": 0.5125,
-      "precio": 166.265,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "LOW",
-      "prob": 0.5123,
-      "precio": 224.87,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "QCOM",
-      "prob": 0.5113,
-      "precio": 166.17,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "T",
-      "prob": 0.5103,
-      "precio": 21.76,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "JNJ",
-      "prob": 0.5101,
-      "precio": 275.185,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "ISRG",
-      "prob": 0.5101,
-      "precio": 450.985,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "BMY",
-      "prob": 0.5097,
-      "precio": 62.33,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "AMT",
-      "prob": 0.5062,
-      "precio": 189.83,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "ABBV",
-      "prob": 0.5062,
-      "precio": 289.875,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "BLK",
-      "prob": 0.5053,
-      "precio": 1181.811,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "PM",
-      "prob": 0.5036,
-      "precio": 198.06,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "PFE",
-      "prob": 0.5036,
-      "precio": 29.295,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "CL",
-      "prob": 0.502,
-      "precio": 96.59,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "BAC",
-      "prob": 0.5017,
-      "precio": 49.8048,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "UNH",
-      "prob": 0.501,
-      "precio": 394.21,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "CVX",
-      "prob": 0.4994,
-      "precio": 213.4219,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "UPS",
-      "prob": 0.4979,
-      "precio": 108.375,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "TSLA",
-      "prob": 0.4976,
-      "precio": 360.765,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "MO",
-      "prob": 0.4973,
-      "precio": 76.235,
-      "fecha_datos": "2026-11-06",
+      "ticker": "NVDA",
+      "prob": 0.5356,
+      "precio": 168.6309,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
       "ticker": "TGT",
-      "prob": 0.4943,
-      "precio": 157.61,
-      "fecha_datos": "2026-11-06",
+      "prob": 0.5338,
+      "precio": 161.115,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "CMCSA",
-      "prob": 0.4933,
-      "precio": 24.535,
-      "fecha_datos": "2026-11-06",
+      "ticker": "GILD",
+      "prob": 0.5331,
+      "precio": 170.17,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "PYPL",
-      "prob": 0.4931,
-      "precio": 59.3301,
-      "fecha_datos": "2026-11-06",
+      "ticker": "BLK",
+      "prob": 0.5324,
+      "precio": 1218.03,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "EOG",
-      "prob": 0.4925,
-      "precio": 148.105,
-      "fecha_datos": "2026-11-06",
+      "ticker": "BA",
+      "prob": 0.5323,
+      "precio": 173.73,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "SLB",
-      "prob": 0.4921,
-      "precio": 50.305,
-      "fecha_datos": "2026-11-06",
+      "ticker": "AMD",
+      "prob": 0.5313,
+      "precio": 516.145,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "MET",
-      "prob": 0.4912,
-      "precio": 98.98,
-      "fecha_datos": "2026-11-06",
+      "ticker": "LLY",
+      "prob": 0.5311,
+      "precio": 1432.51,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "FDX",
-      "prob": 0.4904,
-      "precio": 308.315,
-      "fecha_datos": "2026-11-06",
+      "ticker": "MSFT",
+      "prob": 0.529,
+      "precio": 533.36,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "USB",
-      "prob": 0.4904,
-      "precio": 59.705,
-      "fecha_datos": "2026-11-06",
+      "ticker": "MMM",
+      "prob": 0.5271,
+      "precio": 189.77,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "LMT",
-      "prob": 0.4902,
-      "precio": 568.86,
-      "fecha_datos": "2026-11-06",
+      "ticker": "MO",
+      "prob": 0.5261,
+      "precio": 76.14,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "UNP",
-      "prob": 0.4895,
-      "precio": 291.46,
-      "fecha_datos": "2026-11-06",
+      "ticker": "DHR",
+      "prob": 0.5256,
+      "precio": 235.315,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "RTX",
-      "prob": 0.4885,
-      "precio": 191.77,
-      "fecha_datos": "2026-11-06",
+      "ticker": "ABBV",
+      "prob": 0.5255,
+      "precio": 293.33,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "WFC",
-      "prob": 0.4827,
-      "precio": 84.04,
-      "fecha_datos": "2026-11-06",
+      "ticker": "PM",
+      "prob": 0.5253,
+      "precio": 194.33,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "BKNG",
-      "prob": 0.4805,
-      "precio": 162.31,
-      "fecha_datos": "2026-11-06",
+      "ticker": "HD",
+      "prob": 0.525,
+      "precio": 350.79,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
-      "ticker": "JPM",
-      "prob": 0.4758,
-      "precio": 336.11,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "INTU",
-      "prob": 0.4753,
-      "precio": 342.0,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "NKE",
-      "prob": 0.4744,
-      "precio": 38.58,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "TMUS",
-      "prob": 0.4734,
-      "precio": 162.32,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "HON",
-      "prob": 0.4732,
-      "precio": 219.68,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "SCHW",
-      "prob": 0.472,
-      "precio": 91.745,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "MA",
-      "prob": 0.4714,
-      "precio": 655.25,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "MDLZ",
-      "prob": 0.4695,
-      "precio": 66.11,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "V",
-      "prob": 0.4642,
-      "precio": 422.68,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "AXP",
-      "prob": 0.4635,
-      "precio": 321.5,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "INTC",
-      "prob": 0.4613,
-      "precio": 56.7009,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "GE",
-      "prob": 0.4612,
-      "precio": 322.48,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "LIN",
-      "prob": 0.459,
-      "precio": 516.92,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "DE",
-      "prob": 0.4504,
-      "precio": 674.55,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "DUK",
-      "prob": 0.4459,
-      "precio": 128.23,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "AMGN",
-      "prob": 0.4436,
-      "precio": 460.89,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "ADP",
-      "prob": 0.4436,
-      "precio": 303.66,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "PG",
-      "prob": 0.4395,
-      "precio": 165.425,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "BRK-B",
-      "prob": 0.4381,
-      "precio": 572.53,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "SPGI",
-      "prob": 0.4311,
-      "precio": 467.585,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "WMT",
-      "prob": 0.4253,
-      "precio": 125.49,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "SBUX",
-      "prob": 0.425,
-      "precio": 105.195,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "VZ",
-      "prob": 0.4191,
-      "precio": 46.215,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "COST",
-      "prob": 0.4115,
-      "precio": 1054.87,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "NEE",
-      "prob": 0.4113,
-      "precio": 87.215,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "IBM",
-      "prob": 0.4086,
-      "precio": 245.165,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "PEP",
-      "prob": 0.4031,
-      "precio": 141.08,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "SO",
-      "prob": 0.4019,
-      "precio": 92.4,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "MCD",
-      "prob": 0.3924,
-      "precio": 277.25,
-      "fecha_datos": "2026-11-06",
-      "senal": "NADA"
-    },
-    {
-      "ticker": "DIS",
-      "prob": 0.3924,
-      "precio": 117.155,
-      "fecha_datos": "2026-11-06",
+      "ticker": "LOW",
+      "prob": 0.525,
+      "precio": 231.375,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     },
     {
       "ticker": "KO",
-      "prob": 0.381,
-      "precio": 95.94,
-      "fecha_datos": "2026-11-06",
+      "prob": 0.5243,
+      "precio": 96.8,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "LMT",
+      "prob": 0.5242,
+      "precio": 602.52,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "AMZN",
+      "prob": 0.5226,
+      "precio": 271.81,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "MRK",
+      "prob": 0.5218,
+      "precio": 147.5,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "CVS",
+      "prob": 0.5195,
+      "precio": 88.16,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "ISRG",
+      "prob": 0.5186,
+      "precio": 448.95,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "PFE",
+      "prob": 0.5176,
+      "precio": 29.355,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "COP",
+      "prob": 0.5158,
+      "precio": 136.04,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "EOG",
+      "prob": 0.5149,
+      "precio": 151.97,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "CI",
+      "prob": 0.5129,
+      "precio": 301.18,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "GE",
+      "prob": 0.5108,
+      "precio": 337.28,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "LIN",
+      "prob": 0.5102,
+      "precio": 521.83,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "UPS",
+      "prob": 0.51,
+      "precio": 111.04,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "AAPL",
+      "prob": 0.51,
+      "precio": 348.1,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "ELV",
+      "prob": 0.51,
+      "precio": 426.79,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "V",
+      "prob": 0.509,
+      "precio": 423.43,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "UNH",
+      "prob": 0.5086,
+      "precio": 403.07,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "PYPL",
+      "prob": 0.5066,
+      "precio": 58.71,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "UNP",
+      "prob": 0.5062,
+      "precio": 300.2,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "MET",
+      "prob": 0.5062,
+      "precio": 103.025,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "T",
+      "prob": 0.505,
+      "precio": 21.865,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "HON",
+      "prob": 0.5033,
+      "precio": 227.915,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "AMT",
+      "prob": 0.5023,
+      "precio": 189.95,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "MDLZ",
+      "prob": 0.5007,
+      "precio": 66.16,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "MS",
+      "prob": 0.5003,
+      "precio": 187.41,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "TMO",
+      "prob": 0.4959,
+      "precio": 717.59,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "JPM",
+      "prob": 0.4953,
+      "precio": 342.735,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "BKNG",
+      "prob": 0.4948,
+      "precio": 160.44,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "USB",
+      "prob": 0.4947,
+      "precio": 60.8213,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "ADBE",
+      "prob": 0.4937,
+      "precio": 234.74,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "DE",
+      "prob": 0.4933,
+      "precio": 689.14,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "FDX",
+      "prob": 0.4933,
+      "precio": 319.695,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "GS",
+      "prob": 0.4933,
+      "precio": 910.41,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "TSLA",
+      "prob": 0.4929,
+      "precio": 377.5101,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "BAC",
+      "prob": 0.4915,
+      "precio": 50.715,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "XOM",
+      "prob": 0.4913,
+      "precio": 164.8,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "CVX",
+      "prob": 0.4907,
+      "precio": 211.705,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "SLB",
+      "prob": 0.488,
+      "precio": 50.175,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "WFC",
+      "prob": 0.4852,
+      "precio": 85.91,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "MDT",
+      "prob": 0.4832,
+      "precio": 101.315,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "VZ",
+      "prob": 0.483,
+      "precio": 46.245,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "SBUX",
+      "prob": 0.4792,
+      "precio": 109.42,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "AXP",
+      "prob": 0.4784,
+      "precio": 324.46,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "TMUS",
+      "prob": 0.478,
+      "precio": 168.52,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "ABT",
+      "prob": 0.4756,
+      "precio": 110.04,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "PG",
+      "prob": 0.4754,
+      "precio": 168.74,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "CL",
+      "prob": 0.4754,
+      "precio": 98.01,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "C",
+      "prob": 0.4746,
+      "precio": 122.28,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "BMY",
+      "prob": 0.4739,
+      "precio": 62.41,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "CMCSA",
+      "prob": 0.4729,
+      "precio": 24.905,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "IBM",
+      "prob": 0.4663,
+      "precio": 243.54,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "BRK-B",
+      "prob": 0.462,
+      "precio": 584.765,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "MA",
+      "prob": 0.4609,
+      "precio": 658.91,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "ADP",
+      "prob": 0.4604,
+      "precio": 304.1,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "SCHW",
+      "prob": 0.4581,
+      "precio": 93.505,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "SO",
+      "prob": 0.4539,
+      "precio": 93.45,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "MCD",
+      "prob": 0.45,
+      "precio": 281.77,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "AMGN",
+      "prob": 0.4495,
+      "precio": 464.01,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "INTU",
+      "prob": 0.4494,
+      "precio": 336.57,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "NKE",
+      "prob": 0.4493,
+      "precio": 38.8397,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "VRTX",
+      "prob": 0.4469,
+      "precio": 548.83,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "COST",
+      "prob": 0.4459,
+      "precio": 1066.55,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "RTX",
+      "prob": 0.4433,
+      "precio": 200.6,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "NEE",
+      "prob": 0.4383,
+      "precio": 86.21,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "DIS",
+      "prob": 0.4319,
+      "precio": 119.06,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "DUK",
+      "prob": 0.4303,
+      "precio": 128.91,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "SPGI",
+      "prob": 0.4287,
+      "precio": 471.86,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "JNJ",
+      "prob": 0.4264,
+      "precio": 280.54,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "PEP",
+      "prob": 0.4244,
+      "precio": 143.235,
+      "fecha_datos": "2026-11-10",
+      "senal": "NADA"
+    },
+    {
+      "ticker": "WMT",
+      "prob": 0.4142,
+      "precio": 125.68,
+      "fecha_datos": "2026-11-10",
       "senal": "NADA"
     }
   ]
