@@ -198,9 +198,15 @@ def main() -> None:
     client, mode = (None, "demo") if args.demo else get_client(cfg)
     account, positions, trades = None, [], []
     if client is not None:
-        account, positions, trades = execute(client, cfg, sig, dry_run=args.dry_run,
-                                             risk_only=args.solo_riesgo)
-    else:
+        try:
+            account, positions, trades = execute(client, cfg, sig, dry_run=args.dry_run,
+                                                 risk_only=args.solo_riesgo)
+        except Exception as e:  # noqa: BLE001
+            if "401" not in str(e) and "403" not in str(e) and "nauthorized" not in str(e):
+                raise
+            print(f"Alpaca rechazó las llaves ({str(e)[:90]}). Solo publico señales, sin órdenes.")
+            client, mode = None, "sin_broker"
+    if client is None:
         print(f"Modo {mode}: solo señales, sin órdenes.")
 
     WEB_DATA_DIR.mkdir(parents=True, exist_ok=True)

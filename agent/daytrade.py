@@ -54,7 +54,11 @@ def obtener_velas(cfg: dict, demo: bool, cache: bool, fuente: str = "auto") -> d
         else:
             print(f"Bajando años de velas de 5 minutos de Alpaca ({len(tickers)} acciones). "
                   "La primera vez tarda (hasta una hora); después solo baja lo nuevo.")
-            velas = alpaca_datos.actualizar(tickers, desde=dt.get("alpaca_desde", "2016-01-01"))
+            try:
+                velas = alpaca_datos.actualizar(tickers, desde=dt.get("alpaca_desde", "2016-01-01"))
+            except SystemExit as e:      # llaves mal puestas, etc.: el día no se pierde
+                print(f"  ! {e}")
+                velas = {}
         if dt["mercado"] in velas and len(velas) > 10:
             return velas
         print("  No pude usar Alpaca (¿llaves correctas?); sigo con los 60 días de Yahoo.")
@@ -204,6 +208,23 @@ def solo_plan(s: pd.DataFrame, dt: dict) -> None:
               f"· stop {f['stop']} · agente: {f['decision']} · {f['estado']}")
 
 
+def imprimir_examen(est: dict, spy: dict, folds: list, dias_prueba: list, dt: dict) -> None:
+    nombres = {"agente": "Agente (lee las velas)", "regla": f"Regla: {dt['en_juego_top']} más en juego",
+               "todas": "Cualquier ruptura"}
+    print(f"\nSimulación en {len(dias_prueba)} días que no vio (con comisiones):")
+    for k, nombre in nombres.items():
+        x = est[k]
+        if x["operaciones"]:
+            print(f"  {nombre:<26} {x['operaciones']:>5} operaciones · ganadoras {x['ganadoras']:.0%} · "
+                  f"promedio {x['promedio_bps']:+6.1f} pb · R {x['R_promedio']:+.2f} · resultado {x['retorno_total']:+.2%} "
+                  f"· Sharpe {x['sharpe']:+.2f} · peor caída {x['peor_caida']:.1%}")
+        else:
+            print(f"  {nombre:<26} sin operaciones")
+    print(f"  {'Mercado (SPY)':<26} resultado {spy['retorno_total']:+.2%} · Sharpe {spy['sharpe']:+.2f}")
+    auc = float(np.mean([f["auc"] for f in folds]))
+    print(f"Calificación del agente (AUC promedio en {len(folds)} exámenes): {auc:.3f}")
+
+
 # ---------------------------------------------------------------- principal
 
 def main() -> None:
@@ -211,6 +232,8 @@ def main() -> None:
     ap.add_argument("--demo", action="store_true", help="velas sintéticas")
     ap.add_argument("--cache", action="store_true", help="usar las velas ya guardadas")
     ap.add_argument("--solo-plan", action="store_true", help="solo el plan del día con el modelo ya guardado")
+    ap.add_argument("--solo-examen", action="store_true",
+                    help="solo examinar (no guarda modelo ni cambia la página ni el historial)")
     args = ap.parse_args()
     cfg = load_config()
     dt = cfg["day_trading"]
@@ -257,6 +280,10 @@ def main() -> None:
                 previo = pb["model"]
         except Exception:  # noqa: BLE001
             previo = None
+
+    if args.solo_examen:
+        imprimir_examen(est, spy, folds, dias_prueba, dt)
+        return
 
     print("Entrenando el modelo final con todas las rupturas...")
     final = modelo().fit(base[FEATURES_AP], base["y_bps"])

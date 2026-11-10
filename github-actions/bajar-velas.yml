@@ -1,6 +1,6 @@
 name: Bajar años de velas (Alpaca)
 
-# Solo baja y guarda velas de Alpaca, sin entrenar ni tocar el historial.
+# Baja y guarda velas de Alpaca y hace un examen de prueba, sin guardar modelo ni tocar el historial.
 # Sirve para llenar el guardado la primera vez (tarda hasta una hora) sin cambiar
 # el modelo con el que se va a anotar el día.
 on:
@@ -32,6 +32,8 @@ jobs:
           ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
         run: python -m agent.alpaca_datos
+      - name: Examen con años de velas (no guarda modelo ni cambia la página)
+        run: python -m agent.daytrade --cache --solo-examen
       - name: Guardar velas para la próxima vez
         if: always()
         uses: actions/cache/save@v4
