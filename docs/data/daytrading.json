@@ -615,132 +615,131 @@
   }
  ],
  "plan": {
-  "dia": "2026-11-10",
+  "dia": "2026-11-11",
   "es_hoy": true,
-  "completo": true,
+  "completo": false,
   "filas": [
    {
     "ticker": "NVDA",
-    "en_juego": 4.79,
-    "lado": "CORTO",
-    "entrar_en": 170.94,
-    "stop": 171.81,
-    "espera_bps": -24.0,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:40 · terminó -0.58% (en el stop)"
-   },
-   {
-    "ticker": "CVS",
-    "en_juego": 3.59,
+    "en_juego": 6.33,
     "lado": "COMPRA",
-    "entrar_en": 86.28,
-    "stop": 85.95,
-    "espera_bps": -11.9,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:40 · terminó -0.46% (en el stop)"
-   },
-   {
-    "ticker": "MET",
-    "en_juego": 3.48,
-    "lado": "COMPRA",
-    "entrar_en": 102.79,
-    "stop": 102.5,
-    "espera_bps": -15.2,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 11:20 · terminó -0.35% (stop dudoso)"
-   },
-   {
-    "ticker": "C",
-    "en_juego": 3.4,
-    "lado": "CORTO",
-    "entrar_en": 122.34,
-    "stop": 122.7,
-    "espera_bps": -8.4,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.36% (stop dudoso)"
-   },
-   {
-    "ticker": "SMCI",
-    "en_juego": 3.15,
-    "lado": "CORTO",
-    "entrar_en": 27.38,
-    "stop": 27.64,
-    "espera_bps": 25.0,
+    "entrar_en": 174.67,
+    "stop": 173.74,
+    "espera_bps": 15.2,
     "decision": "ENTRAR",
-    "estado": "rompió a las 11:55 · terminó -1.03% (en el stop)"
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
-    "ticker": "DHR",
-    "en_juego": 2.36,
-    "lado": "CORTO",
-    "entrar_en": 232.95,
-    "stop": 233.73,
-    "espera_bps": -13.5,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.40% (en el stop)"
-   },
-   {
-    "ticker": "TGT",
-    "en_juego": 2.1,
-    "lado": "CORTO",
-    "entrar_en": 159.08,
-    "stop": 159.65,
-    "espera_bps": -30.2,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.43% (stop dudoso)"
-   },
-   {
-    "ticker": "COP",
-    "en_juego": 1.99,
-    "lado": "CORTO",
-    "entrar_en": 131.12,
-    "stop": 131.58,
-    "espera_bps": -18.2,
-    "decision": "NO ENTRAR",
-    "estado": "no rompió"
-   },
-   {
-    "ticker": "WFC",
-    "en_juego": 1.98,
+    "ticker": "AVGO",
+    "en_juego": 1.89,
     "lado": "COMPRA",
-    "entrar_en": 86.15,
-    "stop": 85.94,
-    "espera_bps": -13.9,
+    "entrar_en": 354.5,
+    "stop": 352.77,
+    "espera_bps": -41.8,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:45 · terminó -0.32% (stop dudoso)"
+    "estado": "esperando la ruptura"
    },
    {
-    "ticker": "CAT",
-    "en_juego": 1.57,
+    "ticker": "COST",
+    "en_juego": 1.65,
     "lado": "COMPRA",
-    "entrar_en": 577.8,
-    "stop": 574.62,
-    "espera_bps": -5.3,
+    "entrar_en": 1090.83,
+    "stop": 1088.75,
+    "espera_bps": -13.1,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.61% (en el stop)"
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
-    "ticker": "MRK",
-    "en_juego": 1.53,
+    "ticker": "MA",
+    "en_juego": 1.59,
     "lado": "COMPRA",
-    "entrar_en": 149.19,
-    "stop": 148.69,
-    "espera_bps": -19.2,
+    "entrar_en": 655.38,
+    "stop": 653.73,
+    "espera_bps": -12.9,
     "decision": "NO ENTRAR",
-    "estado": "no rompió"
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
-    "ticker": "SLB",
-    "en_juego": 1.4,
+    "ticker": "CSCO",
+    "en_juego": 1.59,
     "lado": "CORTO",
-    "entrar_en": 48.56,
-    "stop": 48.75,
-    "espera_bps": -14.3,
+    "entrar_en": 100.19,
+    "stop": 100.59,
+    "espera_bps": -32.8,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.47% (en el stop)"
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "AMD",
+    "en_juego": 1.5,
+    "lado": "CORTO",
+    "entrar_en": 531.0,
+    "stop": 535.24,
+    "espera_bps": 9.2,
+    "decision": "ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "VZ",
+    "en_juego": 1.47,
+    "lado": "CORTO",
+    "entrar_en": 45.95,
+    "stop": 46.08,
+    "espera_bps": -18.5,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 10:05 · sigue abierta"
+   },
+   {
+    "ticker": "VRTX",
+    "en_juego": 1.41,
+    "lado": "COMPRA",
+    "entrar_en": 545.32,
+    "stop": 543.43,
+    "espera_bps": -21.8,
+    "decision": "NO ENTRAR",
+    "estado": "esperando la ruptura"
+   },
+   {
+    "ticker": "BKNG",
+    "en_juego": 1.31,
+    "lado": "COMPRA",
+    "entrar_en": 158.4,
+    "stop": 157.72,
+    "espera_bps": -12.6,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "SCHW",
+    "en_juego": 1.22,
+    "lado": "CORTO",
+    "entrar_en": 92.2,
+    "stop": 92.36,
+    "espera_bps": -16.1,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "MU",
+    "en_juego": 1.19,
+    "lado": "CORTO",
+    "entrar_en": 768.51,
+    "stop": 769.69,
+    "espera_bps": -38.9,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "LRCX",
+    "en_juego": 1.18,
+    "lado": "CORTO",
+    "entrar_en": 231.91,
+    "stop": 233.67,
+    "espera_bps": -0.5,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
    }
-  ],
-  "modelo": "anterior"
+  ]
  },
  "velas_patrones": [
   {
@@ -812,5 +811,6 @@
   "veces": 115500,
   "sube_pct": 0.4895,
   "promedio_bps": -0.69
- }
+ },
+ "plan_actualizado": "2026-11-11 15:28 UTC"
 }
