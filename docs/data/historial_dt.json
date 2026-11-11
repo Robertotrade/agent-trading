@@ -458,47 +458,178 @@
     ]
    },
    "spy": -0.003548
+  },
+  {
+   "dia": "2026-11-11",
+   "anotado": "2026-11-11 22:27 UTC",
+   "modelo_entrenado": "2026-11-10T22:11:59.316699+00:00",
+   "modelo_vio_hasta": "2026-11-10",
+   "agente": {
+    "resultado_dia": -0.000592,
+    "operaciones": [
+     {
+      "ticker": "NVDA",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 174.96,
+      "salida": 174.0384,
+      "neto": -0.005924,
+      "motivo": "dudoso",
+      "espera_bps": 9.5
+     }
+    ]
+   },
+   "regla": {
+    "resultado_dia": -0.004578,
+    "operaciones": [
+     {
+      "ticker": "NVDA",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 174.96,
+      "salida": 174.0384,
+      "neto": -0.005924,
+      "motivo": "dudoso",
+      "espera_bps": 9.5
+     },
+     {
+      "ticker": "COST",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 1090.89,
+      "salida": 1088.7532,
+      "neto": -0.002568,
+      "motivo": "stop",
+      "espera_bps": -13.1
+     },
+     {
+      "ticker": "MA",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 655.385,
+      "salida": 653.7338,
+      "neto": -0.003135,
+      "motivo": "stop",
+      "espera_bps": -12.6
+     },
+     {
+      "ticker": "CSCO",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 100.195,
+      "salida": 100.5854,
+      "neto": -0.004596,
+      "motivo": "stop",
+      "espera_bps": -32.8
+     },
+     {
+      "ticker": "AMD",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 531.0,
+      "salida": 535.2417,
+      "neto": -0.008607,
+      "motivo": "stop",
+      "espera_bps": -27.6
+     },
+     {
+      "ticker": "BKNG",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 158.4,
+      "salida": 157.7185,
+      "neto": -0.004966,
+      "motivo": "stop",
+      "espera_bps": -12.6
+     },
+     {
+      "ticker": "SCHW",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 92.15,
+      "salida": 92.3389,
+      "neto": -0.002758,
+      "motivo": "stop",
+      "espera_bps": -16.1
+     },
+     {
+      "ticker": "VZ",
+      "lado": "CORTO",
+      "hora": "10:05",
+      "entrada": 45.95,
+      "salida": 46.0794,
+      "neto": -0.003634,
+      "motivo": "dudoso",
+      "espera_bps": -18.5
+     },
+     {
+      "ticker": "AVGO",
+      "lado": "COMPRA",
+      "hora": "11:50",
+      "entrada": 354.5,
+      "salida": 352.7739,
+      "neto": -0.005497,
+      "motivo": "stop",
+      "espera_bps": -24.7
+     },
+     {
+      "ticker": "VRTX",
+      "lado": "COMPRA",
+      "hora": "13:35",
+      "entrada": 545.32,
+      "salida": 543.4269,
+      "neto": -0.00409,
+      "motivo": "stop",
+      "espera_bps": -14.8
+     }
+    ]
+   },
+   "spy": 0.013134
   }
  ],
  "resumen": {
-  "dias": 4,
+  "dias": 5,
   "fechas": [
    "2026-11-05",
    "2026-11-06",
    "2026-11-09",
-   "2026-11-10"
+   "2026-11-10",
+   "2026-11-11"
   ],
   "agente": {
-   "retorno_total": 0.01055,
-   "operaciones": 6,
-   "ganadoras": 0.3333,
-   "promedio_bps": 175.67,
+   "retorno_total": 0.00995,
+   "operaciones": 7,
+   "ganadoras": 0.2857,
+   "promedio_bps": 142.11,
    "curva": [
     1.00778,
     1.00636,
     1.01159,
-    1.01055
+    1.01055,
+    1.00995
    ]
   },
   "regla": {
-   "retorno_total": 0.00869,
-   "operaciones": 33,
-   "ganadoras": 0.2121,
-   "promedio_bps": 26.44,
+   "retorno_total": 0.00408,
+   "operaciones": 43,
+   "ganadoras": 0.1628,
+   "promedio_bps": 9.65,
    "curva": [
     1.0072,
     1.00544,
     1.01329,
-    1.00869
+    1.00869,
+    1.00408
    ]
   },
   "spy": {
-   "retorno_total": -0.0219,
+   "retorno_total": -0.00905,
    "curva": [
     0.95618,
     0.95906,
     0.98158,
-    0.9781
+    0.9781,
+    0.99095
    ]
   }
  }
