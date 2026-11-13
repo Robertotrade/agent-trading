@@ -615,132 +615,131 @@
   }
  ],
  "plan": {
-  "dia": "2026-11-12",
+  "dia": "2026-11-13",
   "es_hoy": true,
-  "completo": true,
+  "completo": false,
   "filas": [
    {
-    "ticker": "NVDA",
-    "en_juego": 16.67,
-    "lado": "COMPRA",
-    "entrar_en": 156.33,
-    "stop": 155.41,
-    "espera_bps": -3.3,
+    "ticker": "SO",
+    "en_juego": 5.79,
+    "lado": "CORTO",
+    "entrar_en": 92.18,
+    "stop": 92.37,
+    "espera_bps": -21.3,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó +6.14% (al cierre)"
+    "estado": "esperando la ruptura"
    },
    {
-    "ticker": "AMD",
-    "en_juego": 2.91,
-    "lado": "CORTO",
-    "entrar_en": 554.9,
-    "stop": 559.16,
-    "espera_bps": -60.0,
+    "ticker": "WFC",
+    "en_juego": 4.49,
+    "lado": "COMPRA",
+    "entrar_en": 86.86,
+    "stop": 86.66,
+    "espera_bps": -18.4,
     "decision": "NO ENTRAR",
-    "estado": "no rompió"
+    "estado": "esperando la ruptura"
+   },
+   {
+    "ticker": "C",
+    "en_juego": 2.48,
+    "lado": "CORTO",
+    "entrar_en": 124.55,
+    "stop": 124.9,
+    "espera_bps": 95.3,
+    "decision": "ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "CSCO",
+    "en_juego": 2.43,
+    "lado": "CORTO",
+    "entrar_en": 98.95,
+    "stop": 99.35,
+    "espera_bps": -10.3,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "IBM",
+    "en_juego": 2.21,
+    "lado": "CORTO",
+    "entrar_en": 245.2,
+    "stop": 245.79,
+    "espera_bps": 73.3,
+    "decision": "ENTRAR",
+    "estado": "rompió a las 10:15 · sigue abierta"
+   },
+   {
+    "ticker": "SCHW",
+    "en_juego": 1.9,
+    "lado": "CORTO",
+    "entrar_en": 89.77,
+    "stop": 89.97,
+    "espera_bps": 34.5,
+    "decision": "ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
     "ticker": "LOW",
-    "en_juego": 2.9,
+    "en_juego": 1.76,
     "lado": "CORTO",
-    "entrar_en": 232.48,
-    "stop": 233.17,
-    "espera_bps": 22.8,
-    "decision": "ENTRAR",
-    "estado": "rompió a las 09:35 · terminó +2.07% (al cierre)"
-   },
-   {
-    "ticker": "AVGO",
-    "en_juego": 2.76,
-    "lado": "COMPRA",
-    "entrar_en": 361.88,
-    "stop": 360.46,
-    "espera_bps": 12.1,
-    "decision": "ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.56% (en el stop)"
-   },
-   {
-    "ticker": "ABT",
-    "en_juego": 2.75,
-    "lado": "CORTO",
-    "entrar_en": 109.88,
-    "stop": 110.17,
-    "espera_bps": -12.2,
+    "entrar_en": 223.62,
+    "stop": 224.32,
+    "espera_bps": -55.5,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó +2.29% (al cierre)"
-   },
-   {
-    "ticker": "CI",
-    "en_juego": 2.69,
-    "lado": "CORTO",
-    "entrar_en": 301.5,
-    "stop": 302.36,
-    "espera_bps": -14.3,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó +0.67% (stop dudoso)"
-   },
-   {
-    "ticker": "COST",
-    "en_juego": 2.33,
-    "lado": "COMPRA",
-    "entrar_en": 1102.84,
-    "stop": 1100.67,
-    "espera_bps": -14.1,
-    "decision": "NO ENTRAR",
-    "estado": "no rompió"
-   },
-   {
-    "ticker": "SMCI",
-    "en_juego": 1.97,
-    "lado": "COMPRA",
-    "entrar_en": 27.69,
-    "stop": 27.45,
-    "espera_bps": -49.9,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.96% (stop dudoso)"
+    "estado": "esperando la ruptura"
    },
    {
     "ticker": "MSTR",
-    "en_juego": 1.78,
+    "en_juego": 1.69,
     "lado": "CORTO",
-    "entrar_en": 112.32,
-    "stop": 113.17,
-    "espera_bps": 16.8,
+    "entrar_en": 110.42,
+    "stop": 111.28,
+    "espera_bps": 79.4,
     "decision": "ENTRAR",
-    "estado": "no rompió"
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
-    "ticker": "TMO",
-    "en_juego": 1.7,
-    "lado": "CORTO",
-    "entrar_en": 703.09,
-    "stop": 705.19,
-    "espera_bps": -13.5,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.36% (en el stop)"
-   },
-   {
-    "ticker": "SO",
-    "en_juego": 1.45,
+    "ticker": "HON",
+    "en_juego": 1.67,
     "lado": "COMPRA",
-    "entrar_en": 94.19,
-    "stop": 94.01,
-    "espera_bps": -14.3,
+    "entrar_en": 223.38,
+    "stop": 222.74,
+    "espera_bps": -15.0,
     "decision": "NO ENTRAR",
-    "estado": "no rompió"
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
-    "ticker": "ABBV",
-    "en_juego": 1.38,
+    "ticker": "NVDA",
+    "en_juego": 1.58,
     "lado": "CORTO",
-    "entrar_en": 298.2,
-    "stop": 298.93,
-    "espera_bps": -11.0,
+    "entrar_en": 165.38,
+    "stop": 166.45,
+    "espera_bps": 128.1,
+    "decision": "ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "AMAT",
+    "en_juego": 1.41,
+    "lado": "CORTO",
+    "entrar_en": 371.5,
+    "stop": 374.13,
+    "espera_bps": 37.3,
+    "decision": "ENTRAR",
+    "estado": "rompió a las 09:45 · sigue abierta"
+   },
+   {
+    "ticker": "JNJ",
+    "en_juego": 1.38,
+    "lado": "COMPRA",
+    "entrar_en": 286.34,
+    "stop": 285.61,
+    "espera_bps": -17.0,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó +1.18% (al cierre)"
+    "estado": "rompió a las 10:00 · sigue abierta"
    }
-  ],
-  "modelo": "anterior"
+  ]
  },
  "velas_patrones": [
   {
@@ -812,5 +811,6 @@
   "veces": 115500,
   "sube_pct": 0.4897,
   "promedio_bps": -0.55
- }
+ },
+ "plan_actualizado": "2026-11-13 15:27 UTC"
 }
