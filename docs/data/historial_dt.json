@@ -819,10 +819,137 @@
     ]
    },
    "spy": -0.003883
+  },
+  {
+   "dia": "2026-11-16",
+   "anotado": "2026-11-16 22:17 UTC",
+   "modelo_entrenado": "2026-11-13T22:13:37.028816+00:00",
+   "modelo_vio_hasta": "2026-11-13",
+   "agente": {
+    "resultado_dia": -0.000408,
+    "operaciones": [
+     {
+      "ticker": "TGT",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 160.31,
+      "salida": 160.8575,
+      "neto": -0.004078,
+      "motivo": "stop",
+      "espera_bps": 37.8
+     }
+    ]
+   },
+   "regla": {
+    "resultado_dia": -0.004783,
+    "operaciones": [
+     {
+      "ticker": "MSTR",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 105.52,
+      "salida": 104.6762,
+      "neto": -0.008692,
+      "motivo": "dudoso",
+      "espera_bps": -20.3
+     },
+     {
+      "ticker": "JNJ",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 290.08,
+      "salida": 289.3676,
+      "neto": -0.00309,
+      "motivo": "stop",
+      "espera_bps": -20.7
+     },
+     {
+      "ticker": "TGT",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 160.31,
+      "salida": 160.8575,
+      "neto": -0.004078,
+      "motivo": "stop",
+      "espera_bps": 37.8
+     },
+     {
+      "ticker": "RIVN",
+      "lado": "COMPRA",
+      "hora": "09:45",
+      "entrada": 12.2,
+      "salida": 12.1255,
+      "neto": -0.007527,
+      "motivo": "dudoso",
+      "espera_bps": -36.1
+     },
+     {
+      "ticker": "COIN",
+      "lado": "COMPRA",
+      "hora": "09:50",
+      "entrada": 121.8,
+      "salida": 120.8572,
+      "neto": -0.008423,
+      "motivo": "dudoso",
+      "espera_bps": -28.4
+     },
+     {
+      "ticker": "AAPL",
+      "lado": "CORTO",
+      "hora": "09:50",
+      "entrada": 353.79,
+      "salida": 354.6845,
+      "neto": -0.003157,
+      "motivo": "stop",
+      "espera_bps": -38.3
+     },
+     {
+      "ticker": "PEP",
+      "lado": "COMPRA",
+      "hora": "10:00",
+      "entrada": 147.435,
+      "salida": 147.0932,
+      "neto": -0.002986,
+      "motivo": "stop",
+      "espera_bps": -20.7
+     },
+     {
+      "ticker": "CL",
+      "lado": "COMPRA",
+      "hora": "10:05",
+      "entrada": 101.15,
+      "salida": 100.9203,
+      "neto": -0.002969,
+      "motivo": "stop",
+      "espera_bps": -13.7
+     },
+     {
+      "ticker": "PG",
+      "lado": "COMPRA",
+      "hora": "10:15",
+      "entrada": 173.33,
+      "salida": 173.0032,
+      "neto": -0.002543,
+      "motivo": "dudoso",
+      "espera_bps": -21.9
+     },
+     {
+      "ticker": "INTU",
+      "lado": "COMPRA",
+      "hora": "10:35",
+      "entrada": 349.71,
+      "salida": 348.4037,
+      "neto": -0.004364,
+      "motivo": "stop",
+      "espera_bps": -23.2
+     }
+    ]
+   },
+   "spy": -0.018827
   }
  ],
  "resumen": {
-  "dias": 7,
+  "dias": 8,
   "fechas": [
    "2026-11-05",
    "2026-11-06",
@@ -830,13 +957,14 @@
    "2026-11-10",
    "2026-11-11",
    "2026-11-12",
-   "2026-11-13"
+   "2026-11-13",
+   "2026-11-16"
   ],
   "agente": {
-   "retorno_total": 0.0122,
-   "operaciones": 13,
-   "ganadoras": 0.3846,
-   "promedio_bps": 93.62,
+   "retorno_total": 0.01178,
+   "operaciones": 14,
+   "ganadoras": 0.3571,
+   "promedio_bps": 84.02,
    "curva": [
     1.00778,
     1.00636,
@@ -844,14 +972,15 @@
     1.01055,
     1.00995,
     1.01148,
-    1.0122
+    1.0122,
+    1.01178
    ]
   },
   "regla": {
-   "retorno_total": 0.01487,
-   "operaciones": 57,
-   "ganadoras": 0.2456,
-   "promedio_bps": 26.11,
+   "retorno_total": 0.01002,
+   "operaciones": 67,
+   "ganadoras": 0.209,
+   "promedio_bps": 15.08,
    "curva": [
     1.0072,
     1.00544,
@@ -859,11 +988,12 @@
     1.00869,
     1.00408,
     1.01342,
-    1.01487
+    1.01487,
+    1.01002
    ]
   },
   "spy": {
-   "retorno_total": -0.01628,
+   "retorno_total": -0.0348,
    "curva": [
     0.95618,
     0.95906,
@@ -871,7 +1001,8 @@
     0.9781,
     0.99095,
     0.98756,
-    0.98372
+    0.98372,
+    0.9652
    ]
   }
  }
