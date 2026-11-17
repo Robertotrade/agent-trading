@@ -49,6 +49,10 @@ def revisar_llaves() -> list[str]:
         if crudo != v:
             avisos.append(f"{n} tenía espacios al principio o al final (ya los quito solo).")
     k, sec = _llave("ALPACA_API_KEY"), _llave("ALPACA_SECRET_KEY")
+    if k and k == sec:
+        avisos.append("ALPACA_API_KEY y ALPACA_SECRET_KEY tienen lo mismo; cada una lleva su propio código.")
+    elif k and not k.startswith(("PK", "AK")):
+        avisos.append("ALPACA_API_KEY debería empezar con PK (la Key de Paper Trading).")
     tipo = ("demo / paper (empieza con PK)" if k.startswith("PK") else
             "cuenta real (empieza con AK)" if k.startswith("AK") else "no reconocido")
     print(f"Llaves: la Key tiene {len(k)} caracteres y es de tipo {tipo}; la Secret tiene {len(sec)} caracteres "
@@ -103,6 +107,10 @@ def _bajar(cliente, simbolo: str, inicio: datetime, fin: datetime) -> pd.DataFra
         except Exception as e:  # noqa: BLE001
             texto = str(e).lower()
             codigo = getattr(e, "status_code", None)
+            if "subscription" in texto:
+                # las llaves sí entraron; lo que no deja es el plan de datos de la cuenta
+                raise SystemExit(f"Las llaves sí funcionan, pero el plan de datos de Alpaca no deja bajar "
+                                 f"estas velas ({str(e)[:160]}).") from e
             if codigo in (401, 403) or any(x in texto for x in ("forbidden", "unauthorized", "not authorized")):
                 # llaves mal puestas o plan sin permiso: no tiene caso reintentar
                 raise SystemExit(f"Alpaca rechazó la consulta ({str(e)[:120]}). Revisa que las llaves "

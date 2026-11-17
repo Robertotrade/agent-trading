@@ -26,6 +26,20 @@ def load_env() -> None:
             if "=" in line and not line.strip().startswith("#"):
                 k, v = line.split("=", 1)
                 os.environ.setdefault(k.strip(), v.strip())
+    acomodar_llaves()
+
+
+def acomodar_llaves() -> None:
+    """Si las llaves de Alpaca quedaron al revés, las voltea para esta corrida (sin mostrarlas).
+
+    La Key empieza con PK (demo) o AK (cuenta real) y es más corta que la Secret.
+    """
+    k = os.getenv("ALPACA_API_KEY", "").strip()
+    s = os.getenv("ALPACA_SECRET_KEY", "").strip()
+    if s.startswith(("PK", "AK")) and not k.startswith(("PK", "AK")) and len(s) < len(k):
+        os.environ["ALPACA_API_KEY"], os.environ["ALPACA_SECRET_KEY"] = s, k
+        print("Aviso: las llaves de Alpaca estaban al revés (la Key en el lugar de la Secret); "
+              "las acomodé solas.")
 
 
 def load_config(path: Path | None = None) -> dict:
