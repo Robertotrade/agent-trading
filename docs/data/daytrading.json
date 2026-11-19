@@ -576,132 +576,131 @@
   }
  ],
  "plan": {
-  "dia": "2026-11-18",
+  "dia": "2026-11-19",
   "es_hoy": true,
-  "completo": true,
+  "completo": false,
   "filas": [
    {
+    "ticker": "HON",
+    "en_juego": 4.97,
+    "lado": "CORTO",
+    "entrar_en": 221.23,
+    "stop": 221.88,
+    "espera_bps": -29.6,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:45 · sigue abierta"
+   },
+   {
+    "ticker": "WMT",
+    "en_juego": 4.45,
+    "lado": "COMPRA",
+    "entrar_en": 125.33,
+    "stop": 125.02,
+    "espera_bps": -5.7,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:45 · sigue abierta"
+   },
+   {
+    "ticker": "CVX",
+    "en_juego": 4.31,
+    "lado": "COMPRA",
+    "entrar_en": 208.1,
+    "stop": 207.53,
+    "espera_bps": -21.2,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "GS",
+    "en_juego": 3.65,
+    "lado": "COMPRA",
+    "entrar_en": 886.67,
+    "stop": 883.63,
+    "espera_bps": 3.0,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:40 · sigue abierta"
+   },
+   {
     "ticker": "TGT",
-    "en_juego": 9.41,
-    "lado": "COMPRA",
-    "entrar_en": 165.68,
-    "stop": 165.12,
-    "espera_bps": -20.6,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.40% (stop dudoso)"
-   },
-   {
-    "ticker": "DUK",
-    "en_juego": 7.16,
-    "lado": "COMPRA",
-    "entrar_en": 129.6,
-    "stop": 129.53,
-    "espera_bps": 2.6,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.25% (en el stop)"
-   },
-   {
-    "ticker": "LOW",
-    "en_juego": 3.91,
-    "lado": "COMPRA",
-    "entrar_en": 216.71,
-    "stop": 215.97,
-    "espera_bps": -10.5,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó +1.16% (stop dudoso)"
-   },
-   {
-    "ticker": "CRM",
-    "en_juego": 1.73,
+    "en_juego": 3.32,
     "lado": "CORTO",
-    "entrar_en": 189.34,
-    "stop": 190.26,
-    "espera_bps": -29.2,
+    "entrar_en": 166.0,
+    "stop": 166.62,
+    "espera_bps": -36.0,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:40 · terminó -0.55% (en el stop)"
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
-    "ticker": "PG",
-    "en_juego": 1.71,
-    "lado": "COMPRA",
-    "entrar_en": 170.84,
-    "stop": 170.54,
-    "espera_bps": -11.6,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.27% (en el stop)"
-   },
-   {
-    "ticker": "NKE",
-    "en_juego": 1.59,
+    "ticker": "MMM",
+    "en_juego": 2.72,
     "lado": "CORTO",
-    "entrar_en": 34.96,
-    "stop": 35.12,
-    "espera_bps": -32.7,
+    "entrar_en": 180.04,
+    "stop": 180.58,
+    "espera_bps": -23.3,
     "decision": "NO ENTRAR",
-    "estado": "no rompió"
-   },
-   {
-    "ticker": "LLY",
-    "en_juego": 1.52,
-    "lado": "COMPRA",
-    "entrar_en": 1422.99,
-    "stop": 1417.8,
-    "espera_bps": -13.3,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.43% (en el stop)"
-   },
-   {
-    "ticker": "AMT",
-    "en_juego": 1.44,
-    "lado": "COMPRA",
-    "entrar_en": 183.0,
-    "stop": 182.55,
-    "espera_bps": -15.7,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.31% (en el stop)"
-   },
-   {
-    "ticker": "SCHW",
-    "en_juego": 1.39,
-    "lado": "COMPRA",
-    "entrar_en": 92.55,
-    "stop": 92.32,
-    "espera_bps": -10.4,
-    "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.31% (stop dudoso)"
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
     "ticker": "PM",
-    "en_juego": 1.33,
+    "en_juego": 2.66,
+    "lado": "CORTO",
+    "entrar_en": 188.23,
+    "stop": 188.76,
+    "espera_bps": -29.5,
+    "decision": "NO ENTRAR",
+    "estado": "rompió a las 09:35 · sigue abierta"
+   },
+   {
+    "ticker": "LLY",
+    "en_juego": 1.87,
     "lado": "COMPRA",
-    "entrar_en": 193.13,
-    "stop": 192.66,
-    "espera_bps": -7.9,
+    "entrar_en": 1382.0,
+    "stop": 1377.35,
+    "espera_bps": -34.3,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.35% (en el stop)"
+    "estado": "esperando la ruptura"
    },
    {
-    "ticker": "LRCX",
-    "en_juego": 1.3,
+    "ticker": "DIS",
+    "en_juego": 1.82,
     "lado": "CORTO",
-    "entrar_en": 211.04,
-    "stop": 212.79,
-    "espera_bps": -72.1,
+    "entrar_en": 121.2,
+    "stop": 121.53,
+    "espera_bps": -38.3,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -0.89% (en el stop)"
+    "estado": "rompió a las 09:35 · sigue abierta"
    },
    {
-    "ticker": "MSTR",
-    "en_juego": 1.24,
-    "lado": "CORTO",
-    "entrar_en": 93.07,
-    "stop": 93.97,
-    "espera_bps": -42.4,
+    "ticker": "XOM",
+    "en_juego": 1.77,
+    "lado": "COMPRA",
+    "entrar_en": 162.07,
+    "stop": 161.58,
+    "espera_bps": -35.5,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · terminó -1.03% (en el stop)"
+    "estado": "esperando la ruptura"
+   },
+   {
+    "ticker": "ADP",
+    "en_juego": 1.5,
+    "lado": "COMPRA",
+    "entrar_en": 305.96,
+    "stop": 305.27,
+    "espera_bps": -30.0,
+    "decision": "NO ENTRAR",
+    "estado": "esperando la ruptura"
+   },
+   {
+    "ticker": "CRM",
+    "en_juego": 1.48,
+    "lado": "COMPRA",
+    "entrar_en": 194.94,
+    "stop": 194.09,
+    "espera_bps": 10.6,
+    "decision": "ENTRAR",
+    "estado": "rompió a las 09:40 · sigue abierta"
    }
-  ],
-  "modelo": "anterior"
+  ]
  },
  "velas_patrones": [
   {
@@ -773,5 +772,6 @@
   "veces": 115500,
   "sube_pct": 0.4888,
   "promedio_bps": -0.83
- }
+ },
+ "plan_actualizado": "2026-11-19 15:39 UTC"
 }
