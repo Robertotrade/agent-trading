@@ -1,40 +1,40 @@
 {
  "version": 2,
- "entrenado": "2026-11-23 22:20 UTC",
+ "entrenado": "2026-11-24 22:27 UTC",
  "datos_demo": false,
  "dias_datos": 46,
- "desde": "2026-09-21",
- "hasta": "2026-11-23",
+ "desde": "2026-09-22",
+ "hasta": "2026-11-24",
  "universo": 110,
  "rupturas": 4134,
- "auc_promedio": 0.4956,
+ "auc_promedio": 0.4521,
  "examenes": [
   {
    "examen": 1,
-   "desde": "2026-10-22",
-   "hasta": "2026-10-30",
+   "desde": "2026-10-23",
+   "hasta": "2026-11-02",
    "dias": 7,
-   "rupturas": 617,
-   "auc": 0.569,
-   "aciertos": 0.7472
+   "rupturas": 633,
+   "auc": 0.4948,
+   "aciertos": 0.7425
   },
   {
    "examen": 2,
-   "desde": "2026-11-02",
-   "hasta": "2026-11-11",
+   "desde": "2026-11-03",
+   "hasta": "2026-11-12",
    "dias": 8,
-   "rupturas": 757,
-   "auc": 0.4926,
-   "aciertos": 0.7292
+   "rupturas": 744,
+   "auc": 0.4972,
+   "aciertos": 0.7218
   },
   {
    "examen": 3,
-   "desde": "2026-11-12",
-   "hasta": "2026-11-23",
+   "desde": "2026-11-13",
+   "hasta": "2026-11-24",
    "dias": 8,
-   "rupturas": 736,
-   "auc": 0.4252,
-   "aciertos": 0.6712
+   "rupturas": 729,
+   "auc": 0.3642,
+   "aciertos": 0.6626
   }
  ],
  "horizonte_min": 30,
@@ -48,56 +48,55 @@
  },
  "estrategias": {
   "agente": {
-   "operaciones": 38,
+   "operaciones": 20,
    "dias": 23,
-   "por_dia": 1.7,
-   "retorno_total": 0.0004,
-   "sharpe": 0.17,
-   "peor_caida": -0.0081,
-   "ganadoras": 0.1842,
-   "promedio_bps": 1.16,
-   "promedio_bruto_bps": 8.07,
-   "R_promedio": 0.208,
-   "factor_ganancia": 1.03,
-   "stops": 17
+   "por_dia": 0.9,
+   "retorno_total": -0.0009,
+   "sharpe": -0.4,
+   "peor_caida": -0.005,
+   "ganadoras": 0.15,
+   "promedio_bps": -4.25,
+   "promedio_bruto_bps": 2.8,
+   "R_promedio": 0.138,
+   "factor_ganancia": 0.92,
+   "stops": 10
   },
   "regla": {
-   "operaciones": 195,
+   "operaciones": 194,
    "dias": 23,
-   "por_dia": 8.5,
-   "retorno_total": -0.0193,
-   "sharpe": -3.59,
-   "peor_caida": -0.0168,
-   "ganadoras": 0.159,
-   "promedio_bps": -9.92,
-   "promedio_bruto_bps": -3.08,
-   "R_promedio": -0.173,
-   "factor_ganancia": 0.72,
-   "stops": 92
+   "por_dia": 8.4,
+   "retorno_total": -0.0114,
+   "sharpe": -2.03,
+   "peor_caida": -0.0152,
+   "ganadoras": 0.1753,
+   "promedio_bps": -5.82,
+   "promedio_bruto_bps": 1.0,
+   "R_promedio": -0.053,
+   "factor_ganancia": 0.83,
+   "stops": 86
   },
   "todas": {
    "operaciones": 230,
    "dias": 23,
    "por_dia": 10.0,
-   "retorno_total": -0.0149,
-   "sharpe": -1.61,
-   "peor_caida": -0.0204,
-   "ganadoras": 0.1826,
-   "promedio_bps": -6.34,
-   "promedio_bruto_bps": 0.46,
-   "R_promedio": -0.028,
-   "factor_ganancia": 0.83,
-   "stops": 112
+   "retorno_total": -0.0046,
+   "sharpe": -0.45,
+   "peor_caida": -0.0191,
+   "ganadoras": 0.2043,
+   "promedio_bps": -1.81,
+   "promedio_bruto_bps": 4.98,
+   "R_promedio": 0.114,
+   "factor_ganancia": 0.95,
+   "stops": 111
   }
  },
  "spy": {
-  "retorno_total": -0.0656,
-  "sharpe": -2.38,
+  "retorno_total": -0.0592,
+  "sharpe": -2.14,
   "peor_caida": -0.1054
  },
  "curva": {
   "fechas": [
-   "2026-10-22",
    "2026-10-23",
    "2026-10-26",
    "2026-10-27",
@@ -119,110 +118,124 @@
    "2026-11-18",
    "2026-11-19",
    "2026-11-20",
-   "2026-11-23"
+   "2026-11-23",
+   "2026-11-24"
   ],
   "agente": [
-   0.99863,
-   0.99863,
-   0.99863,
-   0.99975,
-   0.99975,
-   0.99886,
-   0.99759,
-   0.9968,
-   0.99524,
-   0.99438,
-   0.99303,
-   0.99162,
-   0.99626,
-   0.99565,
-   0.99506,
-   1.00062,
-   1.00161,
-   1.00121,
-   1.00121,
-   1.00121,
-   1.00121,
-   1.00208,
-   1.00041
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   0.99974,
+   0.99974,
+   0.99894,
+   0.99833,
+   0.99747,
+   0.99612,
+   0.99558,
+   0.99558,
+   0.99497,
+   0.99497,
+   1.00109,
+   1.00109,
+   0.99992,
+   0.99992,
+   0.99992,
+   0.99992,
+   1.00079,
+   0.99913,
+   0.99913
   ],
   "regla": [
-   0.99689,
-   0.99566,
-   0.9934,
-   0.9926,
-   0.98999,
-   0.98624,
-   0.98406,
-   0.9845,
-   0.9827,
-   0.98009,
-   0.98612,
-   0.9844,
-   0.99206,
-   0.98791,
-   0.98339,
-   0.99254,
-   0.99396,
-   0.98973,
-   0.98916,
-   0.98739,
-   0.98513,
-   0.98373,
-   0.98069
+   0.99877,
+   0.99628,
+   0.99547,
+   0.99352,
+   0.98977,
+   0.98756,
+   0.98801,
+   0.9862,
+   0.98359,
+   0.98964,
+   0.98792,
+   0.99563,
+   0.99111,
+   0.98658,
+   0.99576,
+   0.99718,
+   0.99209,
+   0.99152,
+   0.98974,
+   0.98747,
+   0.98865,
+   0.98554,
+   0.9886
   ],
   "todas": [
-   0.99649,
+   0.9984,
    0.99489,
-   0.99129,
-   0.9902,
-   0.98753,
-   0.98361,
-   0.97997,
-   0.98039,
-   0.97874,
-   0.97612,
-   0.99657,
-   0.99287,
-   1.00167,
-   0.99665,
-   0.99225,
-   1.00401,
-   1.00488,
-   1.00086,
-   1.00012,
-   0.99695,
-   0.99375,
-   0.98924,
-   0.98511
+   0.9938,
+   0.99137,
+   0.98743,
+   0.98377,
+   0.9842,
+   0.98254,
+   0.97991,
+   1.00045,
+   0.99673,
+   1.0054,
+   1.00036,
+   0.99595,
+   1.00775,
+   1.00863,
+   1.0046,
+   1.00378,
+   1.0006,
+   0.99776,
+   0.99335,
+   0.98934,
+   0.99542
   ],
   "spy": [
-   0.98816,
-   0.9829,
-   0.98978,
-   0.99559,
-   0.99899,
-   0.99534,
-   0.97747,
-   0.97285,
-   0.97579,
-   0.99172,
-   0.94826,
-   0.95112,
-   0.97346,
-   0.97001,
-   0.98275,
-   0.97938,
-   0.97558,
-   0.95721,
-   0.94732,
-   0.94463,
-   0.92582,
-   0.89365,
-   0.93437
+   0.99466,
+   1.00162,
+   1.0075,
+   1.01094,
+   1.00725,
+   0.98916,
+   0.98446,
+   0.98746,
+   1.00359,
+   0.95961,
+   0.9625,
+   0.9851,
+   0.98161,
+   0.9945,
+   0.99111,
+   0.98725,
+   0.96866,
+   0.95864,
+   0.95594,
+   0.9369,
+   0.90434,
+   0.94555,
+   0.94084
   ]
  },
  "operaciones": [
+  {
+   "dia": "2026-11-23",
+   "hora": "09:35",
+   "ticker": "NVDA",
+   "lado": "CORTO",
+   "entrada": 159.06,
+   "salida": 160.33,
+   "resultado": -0.00864,
+   "R": -1.0,
+   "motivo": "dudoso",
+   "espera_bps": 65.6,
+   "en_juego": 3.35
+  },
   {
    "dia": "2026-11-23",
    "hora": "09:35",
@@ -233,8 +246,8 @@
    "resultado": -0.00882,
    "R": -1.0,
    "motivo": "stop",
-   "espera_bps": 72.1,
-   "en_juego": 4.64
+   "espera_bps": 82.5,
+   "en_juego": 2.38
   },
   {
    "dia": "2026-11-23",
@@ -246,21 +259,8 @@
    "resultado": -0.00755,
    "R": -1.0,
    "motivo": "dudoso",
-   "espera_bps": 95.0,
+   "espera_bps": 125.9,
    "en_juego": 2.43
-  },
-  {
-   "dia": "2026-11-23",
-   "hora": "09:35",
-   "ticker": "NVDA",
-   "lado": "CORTO",
-   "entrada": 159.06,
-   "salida": 160.34,
-   "resultado": -0.00871,
-   "R": -1.0,
-   "motivo": "dudoso",
-   "espera_bps": 98.3,
-   "en_juego": 3.35
   },
   {
    "dia": "2026-11-23",
@@ -272,21 +272,8 @@
    "resultado": 0.02146,
    "R": 2.34,
    "motivo": "dudoso",
-   "espera_bps": 201.8,
+   "espera_bps": 202.4,
    "en_juego": 2.49
-  },
-  {
-   "dia": "2026-11-23",
-   "hora": "09:35",
-   "ticker": "MS",
-   "lado": "CORTO",
-   "entrada": 172.7,
-   "salida": 173.35,
-   "resultado": -0.00439,
-   "R": -1.0,
-   "motivo": "stop",
-   "espera_bps": 228.9,
-   "en_juego": 2.89
   },
   {
    "dia": "2026-11-23",
@@ -298,8 +285,21 @@
    "resultado": -0.0087,
    "R": -1.0,
    "motivo": "dudoso",
-   "espera_bps": 285.9,
+   "espera_bps": 224.6,
    "en_juego": 2.87
+  },
+  {
+   "dia": "2026-11-23",
+   "hora": "09:35",
+   "ticker": "MS",
+   "lado": "CORTO",
+   "entrada": 172.7,
+   "salida": 173.35,
+   "resultado": -0.00439,
+   "R": -1.0,
+   "motivo": "stop",
+   "espera_bps": 231.7,
+   "en_juego": 2.89
   },
   {
    "dia": "2026-11-20",
@@ -311,8 +311,8 @@
    "resultado": -0.0,
    "R": 0.21,
    "motivo": "cierre",
-   "espera_bps": 96.6,
-   "en_juego": 3.45
+   "espera_bps": 99.3,
+   "en_juego": 3.44
   },
   {
    "dia": "2026-11-20",
@@ -324,7 +324,7 @@
    "resultado": 0.01293,
    "R": 5.52,
    "motivo": "cierre",
-   "espera_bps": 87.0,
+   "espera_bps": 97.8,
    "en_juego": 3.2
   },
   {
@@ -337,8 +337,21 @@
    "resultado": -0.00421,
    "R": -1.0,
    "motivo": "stop",
-   "espera_bps": 115.6,
+   "espera_bps": 107.3,
    "en_juego": 4.96
+  },
+  {
+   "dia": "2026-11-16",
+   "hora": "09:35",
+   "ticker": "NVDA",
+   "lado": "CORTO",
+   "entrada": 158.16,
+   "salida": 159.25,
+   "resultado": -0.00757,
+   "R": -1.0,
+   "motivo": "stop",
+   "espera_bps": 9.8,
+   "en_juego": 1.26
   },
   {
    "dia": "2026-11-16",
@@ -350,60 +363,8 @@
    "resultado": -0.00408,
    "R": -1.0,
    "motivo": "stop",
-   "espera_bps": 106.1,
+   "espera_bps": 105.6,
    "en_juego": 1.26
-  },
-  {
-   "dia": "2026-11-13",
-   "hora": "09:35",
-   "ticker": "MSTR",
-   "lado": "CORTO",
-   "entrada": 110.42,
-   "salida": 111.28,
-   "resultado": -0.00851,
-   "R": -1.0,
-   "motivo": "stop",
-   "espera_bps": 120.8,
-   "en_juego": 1.69
-  },
-  {
-   "dia": "2026-11-13",
-   "hora": "09:35",
-   "ticker": "C",
-   "lado": "CORTO",
-   "entrada": 124.55,
-   "salida": 124.01,
-   "resultado": 0.00366,
-   "R": 1.54,
-   "motivo": "cierre",
-   "espera_bps": 130.6,
-   "en_juego": 2.48
-  },
-  {
-   "dia": "2026-11-13",
-   "hora": "09:35",
-   "ticker": "NVDA",
-   "lado": "CORTO",
-   "entrada": 165.38,
-   "salida": 162.82,
-   "resultado": 0.01482,
-   "R": 2.4,
-   "motivo": "cierre",
-   "espera_bps": 171.1,
-   "en_juego": 1.58
-  },
-  {
-   "dia": "2026-11-12",
-   "hora": "09:35",
-   "ticker": "AVGO",
-   "lado": "COMPRA",
-   "entrada": 362.25,
-   "salida": 360.46,
-   "resultado": -0.00555,
-   "R": -1.0,
-   "motivo": "stop",
-   "espera_bps": 14.5,
-   "en_juego": 2.76
   },
   {
    "dia": "2026-11-12",
@@ -413,23 +374,10 @@
    "entrada": 156.33,
    "salida": 166.04,
    "resultado": 0.06145,
-   "R": 10.61,
+   "R": 10.69,
    "motivo": "cierre",
-   "espera_bps": 29.4,
+   "espera_bps": 42.8,
    "en_juego": 8.59
-  },
-  {
-   "dia": "2026-11-11",
-   "hora": "09:35",
-   "ticker": "NVDA",
-   "lado": "COMPRA",
-   "entrada": 174.67,
-   "salida": 173.74,
-   "resultado": -0.00597,
-   "R": -1.0,
-   "motivo": "dudoso",
-   "espera_bps": 11.6,
-   "en_juego": 2.39
   },
   {
    "dia": "2026-11-10",
@@ -441,47 +389,8 @@
    "resultado": -0.00612,
    "R": -1.0,
    "motivo": "stop",
-   "espera_bps": 17.4,
+   "espera_bps": 15.3,
    "en_juego": 1.57
-  },
-  {
-   "dia": "2026-11-09",
-   "hora": "09:35",
-   "ticker": "NVDA",
-   "lado": "COMPRA",
-   "entrada": 175.22,
-   "salida": 174.42,
-   "resultado": -0.00523,
-   "R": -1.0,
-   "motivo": "dudoso",
-   "espera_bps": 9.6,
-   "en_juego": 8.37
-  },
-  {
-   "dia": "2026-11-09",
-   "hora": "09:35",
-   "ticker": "AMAT",
-   "lado": "COMPRA",
-   "entrada": 352.04,
-   "salida": 370.57,
-   "resultado": 0.05202,
-   "R": 8.04,
-   "motivo": "cierre",
-   "espera_bps": 29.8,
-   "en_juego": 3.1
-  },
-  {
-   "dia": "2026-11-06",
-   "hora": "09:35",
-   "ticker": "MU",
-   "lado": "CORTO",
-   "entrada": 690.0,
-   "salida": 695.66,
-   "resultado": -0.00882,
-   "R": -1.0,
-   "motivo": "stop",
-   "espera_bps": 5.2,
-   "en_juego": 2.69
   },
   {
    "dia": "2026-11-06",
@@ -493,7 +402,7 @@
    "resultado": -0.00537,
    "R": -1.0,
    "motivo": "stop",
-   "espera_bps": 14.0,
+   "espera_bps": 28.5,
    "en_juego": 2.46
   },
   {
@@ -506,7 +415,7 @@
    "resultado": -0.00538,
    "R": -1.0,
    "motivo": "dudoso",
-   "espera_bps": 43.3,
+   "espera_bps": 19.5,
    "en_juego": 4.59
   },
   {
@@ -516,10 +425,10 @@
    "lado": "COMPRA",
    "entrada": 175.28,
    "salida": 173.96,
-   "resultado": -0.0082,
+   "resultado": -0.00819,
    "R": -1.0,
    "motivo": "stop",
-   "espera_bps": 56.9,
+   "espera_bps": 39.2,
    "en_juego": 5.12
   },
   {
@@ -532,21 +441,8 @@
    "resultado": -0.00861,
    "R": -1.0,
    "motivo": "dudoso",
-   "espera_bps": 53.7,
+   "espera_bps": 18.3,
    "en_juego": 3.98
-  },
-  {
-   "dia": "2026-11-03",
-   "hora": "09:45",
-   "ticker": "CI",
-   "lado": "CORTO",
-   "entrada": 293.43,
-   "salida": 294.18,
-   "resultado": -0.00319,
-   "R": -1.0,
-   "motivo": "stop",
-   "espera_bps": 7.4,
-   "en_juego": 2.76
   },
   {
    "dia": "2026-11-03",
@@ -558,21 +454,8 @@
    "resultado": -0.00612,
    "R": -1.0,
    "motivo": "dudoso",
-   "espera_bps": 38.2,
+   "espera_bps": 8.4,
    "en_juego": 6.21
-  },
-  {
-   "dia": "2026-11-03",
-   "hora": "09:35",
-   "ticker": "SHOP",
-   "lado": "COMPRA",
-   "entrada": 141.96,
-   "salida": 141.16,
-   "resultado": -0.00633,
-   "R": -1.0,
-   "motivo": "stop",
-   "espera_bps": 49.8,
-   "en_juego": 10.69
   },
   {
    "dia": "2026-11-02",
@@ -584,40 +467,27 @@
    "resultado": -0.00796,
    "R": -1.0,
    "motivo": "stop",
-   "espera_bps": 26.9,
+   "espera_bps": 19.2,
    "en_juego": 1.93
   },
   {
-   "dia": "2026-10-30",
+   "dia": "2026-10-29",
    "hora": "09:35",
-   "ticker": "COIN",
+   "ticker": "MSFT",
    "lado": "CORTO",
-   "entrada": 141.14,
-   "salida": 142.06,
-   "resultado": -0.00716,
+   "entrada": 525.33,
+   "salida": 526.39,
+   "resultado": -0.00263,
    "R": -1.0,
-   "motivo": "dudoso",
-   "espera_bps": 6.1,
-   "en_juego": 4.26
-  },
-  {
-   "dia": "2026-10-30",
-   "hora": "09:35",
-   "ticker": "CAT",
-   "lado": "COMPRA",
-   "entrada": 629.75,
-   "salida": 626.65,
-   "resultado": -0.00554,
-   "R": -1.0,
-   "motivo": "dudoso",
-   "espera_bps": 28.3,
-   "en_juego": 3.15
+   "motivo": "stop",
+   "espera_bps": 17.4,
+   "en_juego": 4.01
   }
  ],
  "plan": {
   "dia": "2026-11-24",
   "es_hoy": true,
-  "completo": false,
+  "completo": true,
   "filas": [
    {
     "ticker": "MDT",
@@ -625,9 +495,9 @@
     "lado": "CORTO",
     "entrar_en": 94.49,
     "stop": 94.75,
-    "espera_bps": -26.6,
+    "espera_bps": -25.2,
     "decision": "NO ENTRAR",
-    "estado": "esperando la ruptura"
+    "estado": "no rompió"
    },
    {
     "ticker": "DE",
@@ -637,7 +507,7 @@
     "stop": 630.3,
     "espera_bps": -15.6,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:55 · sigue abierta"
+    "estado": "rompió a las 09:55 · terminó +0.90% (stop dudoso)"
    },
    {
     "ticker": "RTX",
@@ -647,17 +517,7 @@
     "stop": 196.09,
     "espera_bps": 5.8,
     "decision": "ENTRAR",
-    "estado": "rompió a las 09:35 · sigue abierta"
-   },
-   {
-    "ticker": "GILD",
-    "en_juego": 1.99,
-    "lado": "COMPRA",
-    "entrar_en": 173.62,
-    "stop": 173.15,
-    "espera_bps": 10.6,
-    "decision": "ENTRAR",
-    "estado": "rompió a las 09:35 · sigue abierta"
+    "estado": "rompió a las 09:35 · terminó -0.37% (stop dudoso)"
    },
    {
     "ticker": "MMM",
@@ -667,7 +527,7 @@
     "stop": 183.85,
     "espera_bps": 1.6,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · sigue abierta"
+    "estado": "rompió a las 09:35 · terminó +1.42% (al cierre)"
    },
    {
     "ticker": "BMY",
@@ -677,7 +537,7 @@
     "stop": 60.44,
     "espera_bps": 7.9,
     "decision": "ENTRAR",
-    "estado": "rompió a las 09:35 · sigue abierta"
+    "estado": "rompió a las 09:35 · terminó +2.24% (al cierre)"
    },
    {
     "ticker": "AXP",
@@ -687,7 +547,7 @@
     "stop": 306.49,
     "espera_bps": 6.4,
     "decision": "ENTRAR",
-    "estado": "rompió a las 09:35 · sigue abierta"
+    "estado": "rompió a las 09:35 · terminó -0.33% (stop dudoso)"
    },
    {
     "ticker": "PG",
@@ -695,9 +555,9 @@
     "lado": "CORTO",
     "entrar_en": 169.83,
     "stop": 170.18,
-    "espera_bps": -12.9,
+    "espera_bps": -12.0,
     "decision": "NO ENTRAR",
-    "estado": "esperando la ruptura"
+    "estado": "no rompió"
    },
    {
     "ticker": "SBUX",
@@ -707,7 +567,7 @@
     "stop": 106.13,
     "espera_bps": 10.8,
     "decision": "ENTRAR",
-    "estado": "rompió a las 09:35 · sigue abierta"
+    "estado": "rompió a las 09:35 · terminó -0.41% (en el stop)"
    },
    {
     "ticker": "MRK",
@@ -715,9 +575,9 @@
     "lado": "CORTO",
     "entrar_en": 134.01,
     "stop": 134.44,
-    "espera_bps": -10.0,
+    "espera_bps": -10.4,
     "decision": "NO ENTRAR",
-    "estado": "esperando la ruptura"
+    "estado": "no rompió"
    },
    {
     "ticker": "UPS",
@@ -725,9 +585,19 @@
     "lado": "CORTO",
     "entrar_en": 108.0,
     "stop": 108.31,
-    "espera_bps": -16.3,
+    "espera_bps": -17.4,
     "decision": "NO ENTRAR",
-    "estado": "rompió a las 09:35 · sigue abierta"
+    "estado": "rompió a las 09:35 · terminó -0.35% (en el stop)"
+   },
+   {
+    "ticker": "GILD",
+    "en_juego": 1.32,
+    "lado": "COMPRA",
+    "entrar_en": 173.62,
+    "stop": 173.15,
+    "espera_bps": 10.6,
+    "decision": "ENTRAR",
+    "estado": "rompió a las 09:35 · terminó +2.62% (al cierre)"
    },
    {
     "ticker": "TXN",
@@ -735,82 +605,82 @@
     "lado": "COMPRA",
     "entrar_en": 281.38,
     "stop": 279.59,
-    "espera_bps": -36.0,
+    "espera_bps": -26.6,
     "decision": "NO ENTRAR",
-    "estado": "esperando la ruptura"
+    "estado": "no rompió"
    }
-  ]
+  ],
+  "modelo": "anterior"
  },
  "velas_patrones": [
   {
    "patron": "Doji",
    "libros": "indecisión",
-   "veces": 11731,
-   "sube_pct": 0.484,
-   "promedio_bps": -2.19,
+   "veces": 11675,
+   "sube_pct": 0.4811,
+   "promedio_bps": -2.39,
    "veredicto": "no predice dirección"
   },
   {
    "patron": "Martillo",
    "libros": "sube",
-   "veces": 6236,
-   "sube_pct": 0.4862,
-   "promedio_bps": -1.56,
+   "veces": 6226,
+   "sube_pct": 0.4875,
+   "promedio_bps": -1.57,
    "veredicto": "no se nota"
   },
   {
    "patron": "Estrella fugaz",
    "libros": "baja",
-   "veces": 5174,
-   "sube_pct": 0.4722,
-   "promedio_bps": -2.87,
+   "veces": 5181,
+   "sube_pct": 0.4717,
+   "promedio_bps": -3.0,
    "veredicto": "no se nota"
   },
   {
    "patron": "Envolvente alcista",
    "libros": "sube",
-   "veces": 7792,
-   "sube_pct": 0.4765,
-   "promedio_bps": -1.75,
+   "veces": 7760,
+   "sube_pct": 0.4731,
+   "promedio_bps": -2.2,
    "veredicto": "no se nota"
   },
   {
    "patron": "Envolvente bajista",
    "libros": "baja",
-   "veces": 7604,
-   "sube_pct": 0.4941,
-   "promedio_bps": -2.22,
-   "veredicto": "no se nota"
+   "veces": 7664,
+   "sube_pct": 0.4949,
+   "promedio_bps": -2.15,
+   "veredicto": "pasa lo contrario"
   },
   {
    "patron": "Vela interior",
    "libros": "pausa",
-   "veces": 14523,
-   "sube_pct": 0.4869,
-   "promedio_bps": -0.62,
+   "veces": 14482,
+   "sube_pct": 0.4854,
+   "promedio_bps": -0.64,
    "veredicto": "no predice dirección"
   },
   {
    "patron": "Tres velas verdes",
    "libros": "sube",
-   "veces": 12955,
-   "sube_pct": 0.4584,
-   "promedio_bps": -3.87,
+   "veces": 12945,
+   "sube_pct": 0.4554,
+   "promedio_bps": -4.0,
    "veredicto": "pasa lo contrario"
   },
   {
    "patron": "Tres velas rojas",
    "libros": "baja",
-   "veces": 13892,
-   "sube_pct": 0.5096,
-   "promedio_bps": -0.27,
+   "veces": 13887,
+   "sube_pct": 0.5055,
+   "promedio_bps": -0.47,
    "veredicto": "pasa lo contrario"
   }
  ],
  "velas_base": {
   "veces": 115500,
-  "sube_pct": 0.484,
-  "promedio_bps": -1.73
- },
- "plan_actualizado": "2026-11-24 15:44 UTC"
+  "sube_pct": 0.4834,
+  "promedio_bps": -1.78
+ }
 }
