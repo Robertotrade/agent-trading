@@ -1705,10 +1705,157 @@
     ]
    },
    "spy": -0.004983
+  },
+  {
+   "dia": "2026-11-25",
+   "anotado": "2026-11-25 22:26 UTC",
+   "modelo_entrenado": "2026-11-24T22:27:02.909260+00:00",
+   "modelo_vio_hasta": "2026-11-24",
+   "agente": {
+    "resultado_dia": -0.002925,
+    "operaciones": [
+     {
+      "ticker": "MDT",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 94.805,
+      "salida": 95.0655,
+      "neto": -0.003453,
+      "motivo": "stop",
+      "espera_bps": 168.8
+     },
+     {
+      "ticker": "AMGN",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 468.83,
+      "salida": 470.1414,
+      "neto": -0.003419,
+      "motivo": "stop",
+      "espera_bps": 141.2
+     },
+     {
+      "ticker": "CRM",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 189.845,
+      "salida": 190.6982,
+      "neto": -0.005147,
+      "motivo": "dudoso",
+      "espera_bps": 137.9
+     },
+     {
+      "ticker": "INTU",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 272.47,
+      "salida": 273.9714,
+      "neto": -0.006147,
+      "motivo": "dudoso",
+      "espera_bps": 135.8
+     },
+     {
+      "ticker": "AMAT",
+      "lado": "CORTO",
+      "hora": "09:45",
+      "entrada": 295.29,
+      "salida": 298.3772,
+      "neto": -0.011089,
+      "motivo": "dudoso",
+      "espera_bps": 110.5
+     }
+    ]
+   },
+   "regla": {
+    "resultado_dia": -0.002792,
+    "operaciones": [
+     {
+      "ticker": "DE",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 611.79,
+      "salida": 609.6297,
+      "neto": -0.004147,
+      "motivo": "stop",
+      "espera_bps": -0.2
+     },
+     {
+      "ticker": "AMGN",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 468.83,
+      "salida": 470.1414,
+      "neto": -0.003419,
+      "motivo": "stop",
+      "espera_bps": 141.2
+     },
+     {
+      "ticker": "CRM",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 189.845,
+      "salida": 190.6982,
+      "neto": -0.005147,
+      "motivo": "dudoso",
+      "espera_bps": 137.9
+     },
+     {
+      "ticker": "MDT",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 94.805,
+      "salida": 95.0655,
+      "neto": -0.003453,
+      "motivo": "stop",
+      "espera_bps": 168.8
+     },
+     {
+      "ticker": "INTU",
+      "lado": "CORTO",
+      "hora": "09:35",
+      "entrada": 272.47,
+      "salida": 273.9714,
+      "neto": -0.006147,
+      "motivo": "dudoso",
+      "espera_bps": 135.8
+     },
+     {
+      "ticker": "BAC",
+      "lado": "COMPRA",
+      "hora": "09:35",
+      "entrada": 47.465,
+      "salida": 47.9302,
+      "neto": 0.008991,
+      "motivo": "dudoso",
+      "espera_bps": -15.4
+     },
+     {
+      "ticker": "AMAT",
+      "lado": "CORTO",
+      "hora": "09:45",
+      "entrada": 295.29,
+      "salida": 298.3772,
+      "neto": -0.011089,
+      "motivo": "dudoso",
+      "espera_bps": 110.5
+     },
+     {
+      "ticker": "RTX",
+      "lado": "COMPRA",
+      "hora": "09:55",
+      "entrada": 193.7,
+      "salida": 193.1472,
+      "neto": -0.003506,
+      "motivo": "stop",
+      "espera_bps": -11.4
+     }
+    ]
+   },
+   "spy": -0.002824
   }
  ],
  "resumen": {
-  "dias": 14,
+  "dias": 15,
   "fechas": [
    "2026-11-05",
    "2026-11-06",
@@ -1723,13 +1870,14 @@
    "2026-11-19",
    "2026-11-20",
    "2026-11-23",
-   "2026-11-24"
+   "2026-11-24",
+   "2026-11-25"
   ],
   "agente": {
-   "retorno_total": 0.01082,
-   "operaciones": 26,
-   "ganadoras": 0.2692,
-   "promedio_bps": 41.59,
+   "retorno_total": 0.00787,
+   "operaciones": 31,
+   "ganadoras": 0.2258,
+   "promedio_bps": 25.44,
    "curva": [
     1.00778,
     1.00636,
@@ -1744,14 +1892,15 @@
     1.01178,
     1.01136,
     1.00967,
-    1.01082
+    1.01082,
+    1.00787
    ]
   },
   "regla": {
-   "retorno_total": 0.00752,
-   "operaciones": 121,
-   "ganadoras": 0.1901,
-   "promedio_bps": 6.31,
+   "retorno_total": 0.0047,
+   "operaciones": 129,
+   "ganadoras": 0.186,
+   "promedio_bps": 3.76,
    "curva": [
     1.0072,
     1.00544,
@@ -1766,11 +1915,12 @@
     1.00932,
     1.0075,
     1.0044,
-    1.00752
+    1.00752,
+    1.0047
    ]
   },
   "spy": {
-   "retorno_total": -0.06251,
+   "retorno_total": -0.06516,
    "curva": [
     0.95618,
     0.95906,
@@ -1785,7 +1935,8 @@
     0.93356,
     0.90112,
     0.94218,
-    0.93749
+    0.93749,
+    0.93484
    ]
   }
  }
