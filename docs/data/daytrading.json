@@ -616,7 +616,7 @@
  ],
  "plan": {
   "dia": "2026-11-25",
-  "es_hoy": true,
+  "es_hoy": false,
   "completo": true,
   "filas": [
    {
@@ -625,7 +625,7 @@
     "lado": "COMPRA",
     "entrar_en": 611.79,
     "stop": 609.63,
-    "espera_bps": -0.2,
+    "espera_bps": -7.3,
     "decision": "NO ENTRAR",
     "estado": "rompió a las 09:35 · terminó -0.41% (en el stop)"
    },
@@ -635,7 +635,7 @@
     "lado": "CORTO",
     "entrar_en": 468.83,
     "stop": 470.14,
-    "espera_bps": 141.2,
+    "espera_bps": 92.6,
     "decision": "ENTRAR",
     "estado": "rompió a las 09:35 · terminó -0.34% (en el stop)"
    },
@@ -645,7 +645,7 @@
     "lado": "CORTO",
     "entrar_en": 189.84,
     "stop": 190.7,
-    "espera_bps": 137.9,
+    "espera_bps": 90.2,
     "decision": "ENTRAR",
     "estado": "rompió a las 09:35 · terminó -0.51% (stop dudoso)"
    },
@@ -655,7 +655,7 @@
     "lado": "CORTO",
     "entrar_en": 94.81,
     "stop": 95.07,
-    "espera_bps": 168.8,
+    "espera_bps": 126.0,
     "decision": "ENTRAR",
     "estado": "rompió a las 09:35 · terminó -0.35% (en el stop)"
    },
@@ -665,7 +665,7 @@
     "lado": "CORTO",
     "entrar_en": 272.47,
     "stop": 273.97,
-    "espera_bps": 135.8,
+    "espera_bps": 72.9,
     "decision": "ENTRAR",
     "estado": "rompió a las 09:35 · terminó -0.61% (stop dudoso)"
    },
@@ -675,7 +675,7 @@
     "lado": "CORTO",
     "entrar_en": 244.81,
     "stop": 246.75,
-    "espera_bps": 65.2,
+    "espera_bps": 24.1,
     "decision": "ENTRAR",
     "estado": "no rompió"
    },
@@ -685,7 +685,7 @@
     "lado": "COMPRA",
     "entrar_en": 193.7,
     "stop": 193.15,
-    "espera_bps": -11.4,
+    "espera_bps": -8.0,
     "decision": "NO ENTRAR",
     "estado": "rompió a las 09:55 · terminó -0.35% (en el stop)"
    },
@@ -695,8 +695,8 @@
     "lado": "CORTO",
     "entrar_en": 295.29,
     "stop": 298.38,
-    "espera_bps": 110.5,
-    "decision": "ENTRAR",
+    "espera_bps": -27.2,
+    "decision": "NO ENTRAR",
     "estado": "rompió a las 09:45 · terminó -1.11% (stop dudoso)"
    },
    {
@@ -705,7 +705,7 @@
     "lado": "COMPRA",
     "entrar_en": 47.47,
     "stop": 47.34,
-    "espera_bps": -15.4,
+    "espera_bps": -7.5,
     "decision": "NO ENTRAR",
     "estado": "rompió a las 09:35 · terminó +0.90% (stop dudoso)"
    },
@@ -715,7 +715,7 @@
     "lado": "CORTO",
     "entrar_en": 162.58,
     "stop": 163.26,
-    "espera_bps": 85.5,
+    "espera_bps": 41.1,
     "decision": "ENTRAR",
     "estado": "no rompió"
    },
@@ -725,7 +725,7 @@
     "lado": "CORTO",
     "entrar_en": 61.54,
     "stop": 61.73,
-    "espera_bps": 168.2,
+    "espera_bps": 86.8,
     "decision": "ENTRAR",
     "estado": "rompió a las 09:35 · terminó -0.38% (en el stop)"
    },
@@ -735,12 +735,11 @@
     "lado": "COMPRA",
     "entrar_en": 184.57,
     "stop": 184.11,
-    "espera_bps": -20.7,
+    "espera_bps": -8.2,
     "decision": "NO ENTRAR",
     "estado": "rompió a las 09:35 · terminó -0.32% (en el stop)"
    }
-  ],
-  "modelo": "anterior"
+  ]
  },
  "velas_patrones": [
   {
@@ -812,5 +811,6 @@
   "veces": 115500,
   "sube_pct": 0.4856,
   "promedio_bps": -1.36
- }
+ },
+ "plan_actualizado": "2026-11-26 15:39 UTC"
 }
