@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-26 16:00 UTC",
+  "actualizado": "2026-11-26 20:28 UTC",
   "modo": "sin_broker",
   "simulacion": true,
   "top_n": 10,
@@ -30,7 +30,7 @@
     },
     {
       "ticker": "AMD",
-      "prob": 0.6187,
+      "prob": 0.6216,
       "precio": 406.03,
       "fecha_datos": "2026-11-25",
       "senal": "COMPRA"
@@ -197,16 +197,16 @@
       "senal": "NADA"
     },
     {
-      "ticker": "TXN",
-      "prob": 0.5267,
-      "precio": 270.19,
+      "ticker": "TMO",
+      "prob": 0.5258,
+      "precio": 685.52,
       "fecha_datos": "2026-11-25",
       "senal": "NADA"
     },
     {
-      "ticker": "TMO",
-      "prob": 0.5258,
-      "precio": 685.52,
+      "ticker": "TXN",
+      "prob": 0.5257,
+      "precio": 270.19,
       "fecha_datos": "2026-11-25",
       "senal": "NADA"
     },
